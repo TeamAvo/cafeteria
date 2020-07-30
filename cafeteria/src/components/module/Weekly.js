@@ -7,7 +7,7 @@ class Weekly extends React.Component {
       <>
         <div className='weeklybox'>
           <Day day='Sun' color='color1' />
-          <Day day='Mon' color='disable' />
+          <Day day='Mon' color='color2' />
           <Day day='Tue' color='color3' />
           <Day day='Wed' color='color4' />
           <Day day='Thu' color='color5' />

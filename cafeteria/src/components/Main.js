@@ -1,6 +1,5 @@
 import React from 'react'
-import Header from './module/Header.js'
-import TopBar from './module/TopBar.js'
+import CategoryBar from './module/CategoryBar.js'
 import Weekly from './module/Weekly.js'
 
 class Main extends React.Component {
@@ -10,9 +9,11 @@ class Main extends React.Component {
   render() {
     return (
       <>
-        <Header />
+        <header>
+          <div className='title'>Avo Food</div>
+        </header>
         <body>
-          <TopBar />
+          <CategoryBar />
           <Weekly />
         </body>
       </>

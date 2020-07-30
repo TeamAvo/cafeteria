@@ -1,11 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './assets/css/index.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './assets/css/index.css'
 import Main from './components/Main.js'
+import { Provider } from 'react-redux'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Main/>
-  </React.StrictMode>,
+  <Provider>
+    <React.StrictMode>
+      <Main />
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
-);
+)
