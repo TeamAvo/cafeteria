@@ -88,6 +88,11 @@ header {
 .day:hover {
   padding-left: 10px;
   padding-right: 10px;
+  background-color: #303030;
+}
+
+.day.disable {
+  background: #202020;
 }
 
 .color1 {

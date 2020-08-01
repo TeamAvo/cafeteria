@@ -6,17 +6,16 @@ class Weekly extends React.Component {
     return (
       <>
         <div className='weeklybox'>
-          <Day day='Sun' color='color1' />
-          <Day day='Mon' color='color2' />
-          <Day day='Tue' color='color3' />
-          <Day day='Wed' color='color4' />
-          <Day day='Thu' color='color5' />
-          <Day day='Fri' color='color6' />
-          <Day day='Sat' color='color7' />
+          <Day text='Sun' index={1} />
+          <Day text='Mon' index={2} />
+          <Day text='Tue' index={3} />
+          <Day text='Wed' index={4} />
+          <Day text='Thu' index={5} />
+          <Day text='Fri' index={6} />
+          <Day text='Sat' index={7} />
         </div>
       </>
     )
   }
 }
-
 export default Weekly
