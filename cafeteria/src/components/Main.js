@@ -1,12 +1,20 @@
 import React from 'react'
 import CategoryBar from './module/CategoryBar.js'
-import Weekly from './module/Weekly.js'
+import Display from './Display.js'
+
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import * as actions from './reducers/actions'
 
 class Main extends React.Component {
   //https://bashooka.com/inspiration/music-video-player-ui-designs/
   //https://www.npmjs.com/package/react-player
 
   render() {
+    if (!this.props.mealDaily.loaded) {
+      this.props.getDailyMeal('2020/02/20', 'lunch')
+    }
+
     return (
       <>
         <header>
@@ -14,11 +22,14 @@ class Main extends React.Component {
         </header>
         <body>
           <CategoryBar />
-          <Weekly />
+          <Display />
         </body>
       </>
     )
   }
 }
 
-export default Main
+const mapStateToProps = (state) => ({
+  mealDaily: state.mealDaily
+})
+export default compose(connect(mapStateToProps, actions))(Main)

@@ -11,7 +11,9 @@ class Day extends React.Component {
       <>
         <div
           className={`day ${
-            day === this.props.index ? `color${this.props.index}` : `disable`
+            day === this.props.index
+              ? `color${this.props.index + 1}`
+              : `disable`
           }`}
           onClick={() => {
             this.props.setDay(this.props.index)
