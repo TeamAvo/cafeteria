@@ -41,6 +41,7 @@ export const setAPICallingStatus = (status) => {
 export const getDailyMeal = (date, type) => {
   return async (dispatch) => {
     try {
+      console.log('Calling an API...')
       const data = await axios.post(API_URL + `${type}/${date}`)
       console.log(data)
       dispatch({

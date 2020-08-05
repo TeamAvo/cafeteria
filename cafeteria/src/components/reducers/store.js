@@ -22,7 +22,7 @@ const initialState = {
     loaded: false,
     mealDate: '',
     mealType: 'null',
-    data: null
+    data: ''
   },
   mealSelected: {
     mealDate: '',

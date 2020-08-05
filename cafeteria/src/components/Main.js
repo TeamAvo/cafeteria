@@ -12,7 +12,7 @@ class Main extends React.Component {
 
   render() {
     if (!this.props.mealDaily.loaded) {
-      this.props.getDailyMeal('2020/02/20', 'lunch')
+      this.props.getDailyMeal('2020/03/01', 'lunch')
     }
 
     return (

@@ -105,6 +105,41 @@ header {
   background: #202020;
 }
 
+.item {
+  float: left;
+  width: 20%;
+  height: 100px;
+  margin: 1%;
+  transition: 0.5s;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  background: #202020;
+}
+
+.item .img {
+  width: 90px;
+  height: 90px;
+  margin: 5px;
+  float: left;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.item .name {
+  margin-top: 3%;
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+}
+
+.item .description {
+  margin-top: 3%;
+  text-align: center;
+  font-size: 16px;
+}
+
 .color1 {
   background: linear-gradient(135deg, #ea4d2c, #ff881b);
 }
