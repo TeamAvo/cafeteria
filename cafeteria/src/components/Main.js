@@ -14,7 +14,6 @@ class Main extends React.Component {
     if (!this.props.mealDaily.loaded) {
       this.props.getDailyMeal('2020/03/01', 'lunch')
     }
-
     return (
       <>
         <header>

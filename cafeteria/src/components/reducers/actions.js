@@ -42,7 +42,7 @@ export const getDailyMeal = (date, type) => {
   return async (dispatch) => {
     try {
       console.log('Calling an API...')
-      const data = await axios.post(API_URL + `${type}/${date}`)
+      const data = await axios.get(API_URL + `${type}/${date}`)
       console.log(data)
       dispatch({
         type: GET_DAILY_MEAL,

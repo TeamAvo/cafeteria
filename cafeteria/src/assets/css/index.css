@@ -106,29 +106,28 @@ header {
 }
 
 .item {
-  float: left;
-  width: 20%;
-  height: 100px;
-  margin: 1%;
+  width: 96%;
+  height: 90px;
+  margin: 2%;
   transition: 0.5s;
   border-radius: 20px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   background: #202020;
 }
 
 .item .img {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   margin: 5px;
   float: left;
   object-fit: cover;
   overflow: hidden;
   border-radius: 20px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 .item .name {
-  margin-top: 3%;
+  padding-top: 2%;
   font-weight: bold;
   text-align: center;
   font-size: 18px;
@@ -138,6 +137,25 @@ header {
   margin-top: 3%;
   text-align: center;
   font-size: 16px;
+}
+
+.itemcontainer {
+  display: inline-block;
+  vertical-align: middle;
+  width: 22%;
+  margin-left: 2%;
+  margin-right: 2%;
+  height: auto;
+  transition: 0.5s;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(135deg, #ea4d2c, #ff881b);
+}
+
+.itemcontainer .title {
+  font-weight: bold;
+  text-align: center;
+  font-size: 34px;
 }
 
 .color1 {
