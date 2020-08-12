@@ -2,32 +2,61 @@
 
 import {
   SET_CATEGORY,
-  SET_DAY,
-  SET_API_CALLING_STATUS,
-  GET_DAILY_MEAL,
-  GET_SELECTED_PERIOD_MEAL
+  SET_DAY_OF_WEEK,
+  SET_DAY_OF_MONTH,
+  GET_WEEK_MEAL,
+  GET_MONTHLY_MEAL
 } from './types.js'
 
 var today = new Date()
-var date =
-  today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate()
 
 const initialState = {
-  category: 0,
-  day: today.getDay(),
-  today: today.getDay(),
-  date: date,
-  callingAPI: false,
-  mealDaily: {
+  status: {
+    today: today.getDay(),
+    date: today,
+    category: 0,
+    dayOfWeek: today.getDay(),
+    dayOfMonth: 0
+  },
+  mealWeek: {
     loaded: false,
     mealDate: '',
-    mealType: 'null',
-    data: ''
+    data: {
+      breakfast: '',
+      lunch: '',
+      dinner: ''
+    }
   },
-  mealSelected: {
-    mealDate: '',
-    mealType: null,
-    data: null
+  mealMonthly: {
+    loaded: false,
+    mealMonth: '',
+    data: {
+      week1: {
+        breakfast: '',
+        lunch: '',
+        dinner: ''
+      },
+      week2: {
+        breakfast: '',
+        lunch: '',
+        dinner: ''
+      },
+      week3: {
+        breakfast: '',
+        lunch: '',
+        dinner: ''
+      },
+      week4: {
+        breakfast: '',
+        lunch: '',
+        dinner: ''
+      },
+      week5: {
+        breakfast: '',
+        lunch: '',
+        dinner: ''
+      }
+    }
   }
 }
 
@@ -36,27 +65,36 @@ export default (state = initialState, action) => {
     case SET_CATEGORY:
       return {
         ...state,
-        category: action.payload
+        status: {
+          ...state.status,
+          category: action.payload
+        }
       }
-    case SET_DAY:
+    case SET_DAY_OF_WEEK:
       return {
         ...state,
-        day: action.payload
+        status: {
+          ...state.status,
+          dayOfWeek: action.payload
+        }
       }
-    case SET_API_CALLING_STATUS:
+    case SET_DAY_OF_MONTH:
       return {
         ...state,
-        callingAPI: action.payload
+        status: {
+          ...state.status,
+          dayOfMonth: action.payload
+        }
       }
-    case GET_DAILY_MEAL:
+    case GET_WEEK_MEAL:
       return {
         ...state,
-        mealDaily: action.payload
+        mealWeek: action.payload
       }
-    case GET_SELECTED_PERIOD_MEAL:
+    case GET_MONTHLY_MEAL:
       return {
         ...state,
-        mealSelected: action.payload
+        mealMonthly: action.payload
       }
     default:
       return state
