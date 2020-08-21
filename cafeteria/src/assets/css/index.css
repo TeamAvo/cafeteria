@@ -18,6 +18,10 @@ header {
   display: grid;
 }
 
+.center {
+  text-align: center;
+}
+
 .visible {
   transition: 0.5s;
   opacity: 1;
@@ -105,6 +109,10 @@ header {
   background: #202020;
 }
 
+.meal {
+  display: inline;
+}
+
 .item {
   width: 96%;
   height: 90px;
@@ -143,6 +151,7 @@ header {
   display: inline-block;
   vertical-align: middle;
   width: 22%;
+  margin-top: 1%;
   margin-left: 2%;
   margin-right: 2%;
   height: auto;

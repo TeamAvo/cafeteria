@@ -10,14 +10,23 @@ import Item from './Item.js'
 
 class Meal extends React.Component {
   render() {
-    const j = this.props.data
-    if (j.loaded) {
-      const data = j.data.data
-      const day = data.days[this.props.day]
+    const d = this.props.data
+    if (this.props.status.weekLoaded) {
+      const breakfast = d.breakfast.data.days[this.props.dayOfWeek]
+      const lunch = d.lunch.data.days[this.props.dayOfWeek]
+      const dinner = d.dinner.data.days[this.props.dayOfWeek]
       return (
-        <>
-          <Item data={day.menu_items} />
-        </>
+        <div className='center'>
+          <div className='meal'>
+            <Item
+              data={breakfast.menu_items}
+              title='Breakfast'
+              color='color1'
+            />
+            <Item data={lunch.menu_items} title='Lunch' color='color2' />
+            <Item data={dinner.menu_items} title='Dinner' color='color3' />
+          </div>
+        </div>
       )
     } else {
       return <>loading data...</>
@@ -26,7 +35,7 @@ class Meal extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  day: state.day,
-  date: state.date
+  status: state.status,
+  dayOfWeek: state.status.dayOfWeek
 })
 export default compose(connect(mapStateToProps, actions))(Meal)

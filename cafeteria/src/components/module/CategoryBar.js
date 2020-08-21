@@ -43,6 +43,6 @@ class CategoryBar extends React.Component {
   }
 }
 const mapStateToProps = (state) => ({
-  category: state.category
+  category: state.status.category
 })
 export default compose(connect(mapStateToProps, actions))(CategoryBar)

@@ -13,7 +13,7 @@ class Display extends React.Component {
       <>
         {category === 0 ? <Weekly /> : ''}
         {category === 0 ? (
-          <Meal data={this.props.mealDaily} day={this.props.day} />
+          <Meal data={this.props.mealWeek} day={this.props.dayOfWeek} />
         ) : (
           ''
         )}
@@ -22,8 +22,8 @@ class Display extends React.Component {
   }
 }
 const mapStateToProps = (state) => ({
-  day: state.day,
-  category: state.category,
-  mealDaily: state.mealDaily
+  dayOfWeek: state.status.dayOfWeek,
+  category: state.status.category,
+  mealWeek: state.mealWeek
 })
 export default compose(connect(mapStateToProps, actions))(Display)

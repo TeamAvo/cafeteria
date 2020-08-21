@@ -11,8 +11,8 @@ class Main extends React.Component {
   //https://www.npmjs.com/package/react-player
 
   render() {
-    if (!this.props.mealDaily.loaded) {
-      this.props.getDailyMeal('2020/03/01')
+    if (!this.props.status.weekLoaded) {
+      this.props.getWeekMeal('2020/03/01')
     }
     return (
       <>
@@ -29,6 +29,7 @@ class Main extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  mealDaily: state.mealDaily
+  status: state.status,
+  mealWeek: state.mealWeek
 })
 export default compose(connect(mapStateToProps, actions))(Main)

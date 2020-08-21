@@ -16,7 +16,7 @@ class Day extends React.Component {
               : `disable`
           }`}
           onClick={() => {
-            this.props.setDay(this.props.index)
+            this.props.setDayOfWeek(this.props.index)
           }}>
           {this.props.text}
         </div>
@@ -26,6 +26,6 @@ class Day extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  day: state.day
+  day: state.status.dayOfWeek
 })
 export default compose(connect(mapStateToProps, actions))(Day)

@@ -8,9 +8,9 @@ class Item extends React.Component {
       if (data[i].food != null) {
         var imgURL
         if (data[i].food.image_url == null) {
-          imgURL =
-            'https://source.unsplash.com/100x100/?food,' +
-            data[i].food.name.replace(/\s/gi, '%20')
+          imgURL = `https://source.unsplash.com/100x100/?food,"${data[
+            i
+          ].food.name.replace(/\s/gi, '_')}"`
         } else {
           imgURL = data[i].food.image_url
         }
@@ -25,8 +25,8 @@ class Item extends React.Component {
     }
     return (
       <>
-        <div className='itemcontainer color3'>
-          <div className='title'>Breakfast</div>
+        <div className={`itemcontainer ${this.props.color}`}>
+          <div className='title'>{this.props.title}</div>
           <div>{items}</div>
         </div>
       </>

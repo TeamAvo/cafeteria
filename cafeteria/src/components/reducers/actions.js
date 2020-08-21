@@ -32,25 +32,22 @@ export const setDayOfMonth = (day) => {
   return (dispatch) => {
     dispatch({
       type: SET_DAY_OF_MONTH,
-      payload: index
+      payload: day
     })
   }
 }
 
 export const getWeekMeal = (date) => {
   return async (dispatch) => {
-      console.log('Calling API...')
-      const data = getWeekData(date)
-      if(data != null) {
-        console.log(`API Request finished, date:${date}`)
-        dispatch({
-          type: GET_WEEK_MEAL,
-          payload: {
-            loaded: true,
-            mealDate: date,
-            data: data
-          }
-        })
+    console.log('Calling API...')
+    const data = await getWeekData(date)
+    if (data != null) {
+      console.log(`API Request finished, date:${date}`)
+      dispatch({
+        type: GET_WEEK_MEAL,
+        isLoaded: true,
+        payload: data
+      })
     } else {
       alert('An error occurred while parsing data.')
     }
@@ -61,18 +58,25 @@ export const getMonthlyMeal = (year, month) => {
   return async (dispatch) => {
     var ym = `${year}/${month}`
     console.log('Calling API...')
-    const week1 = getWeekData(new date(`${ym}/1`))
-    const week2 = getWeekData(new date(`${ym}/8`))
-    const week3 = getWeekData(new date(`${ym}/15`))
-    const week4 = getWeekData(new date(`${ym}/22`))
-    const week5 = getWeekData(new date(`${ym}/29`))
-    if(week1 != null && week2 != null && week3 != null && week4 != null && week5 !=null) {
+    console.log(new Date(`${ym}/1`).getFullYear)
+    const week1 = getWeekData(new Date(`${ym}/1`))
+    const week2 = getWeekData(new Date(`${ym}/8`))
+    const week3 = getWeekData(new Date(`${ym}/15`))
+    const week4 = getWeekData(new Date(`${ym}/22`))
+    const week5 = getWeekData(new Date(`${ym}/29`))
+    if (
+      week1 != null &&
+      week2 != null &&
+      week3 != null &&
+      week4 != null &&
+      week5 != null
+    ) {
       console.log(`API Request finished, Monthly: ${ym}`)
       dispatch({
         type: GET_MONTHLY_MEAL,
         payload: {
           loaded: true,
-          mealDate: new date(`${ym}/1`),
+          mealDate: new Date(`${ym}/1`),
           data: {
             week1: week1,
             week2: week2,
@@ -88,8 +92,10 @@ export const getMonthlyMeal = (year, month) => {
   }
 }
 
-function getWeekData(date){
-  var d = date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()
+async function getWeekData(newDate) {
+  var date = new Date(newDate) // This code is necessary
+  var d =
+    date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()
   try {
     const breakfast = await axios.get(API_URL + `breakfast/${d}`)
     const lunch = await axios.get(API_URL + `lunch/${d}`)

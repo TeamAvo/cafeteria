@@ -16,16 +16,15 @@ const initialState = {
     date: today,
     category: 0,
     dayOfWeek: today.getDay(),
-    dayOfMonth: 0
+    dayOfMonth: 0,
+    weekLoaded: false,
+    monthLoaded: false
   },
   mealWeek: {
     loaded: false,
-    mealDate: '',
-    data: {
-      breakfast: '',
-      lunch: '',
-      dinner: ''
-    }
+    breakfast: '',
+    lunch: '',
+    dinner: ''
   },
   mealMonthly: {
     loaded: false,
@@ -89,6 +88,10 @@ export default (state = initialState, action) => {
     case GET_WEEK_MEAL:
       return {
         ...state,
+        status: {
+          ...state.status,
+          weekLoaded: true
+        },
         mealWeek: action.payload
       }
     case GET_MONTHLY_MEAL:
