@@ -7,11 +7,8 @@ import { compose } from 'redux'
 import * as actions from './reducers/actions'
 
 class Main extends React.Component {
-  //https://bashooka.com/inspiration/music-video-player-ui-designs/
-  //https://www.npmjs.com/package/react-player
-
   render() {
-    if (!this.props.status.weekLoaded) {
+    if (!this.props.status.callingAPI && !this.props.mealWeek.isLoaded) {
       this.props.getWeekMeal('2020/03/01')
     }
     return (
@@ -19,10 +16,8 @@ class Main extends React.Component {
         <header>
           <div className='title'>Avo Food</div>
         </header>
-        <body>
-          <CategoryBar />
-          <Display />
-        </body>
+        <CategoryBar />
+        <Display />
       </>
     )
   }

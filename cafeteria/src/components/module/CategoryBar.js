@@ -14,26 +14,19 @@ class CategoryBar extends React.Component {
             onClick={() => {
               this.props.setCategory(0)
             }}>
-            This Week
+            Meal
           </div>
           <div
             className={`categoryitem ${btn === 1 ? 'enable' : 'disable'}`}
             onClick={() => {
               this.props.setCategory(1)
             }}>
-            Selected Period
+            Vote
           </div>
           <div
             className={`categoryitem ${btn === 2 ? 'enable' : 'disable'}`}
             onClick={() => {
               this.props.setCategory(2)
-            }}>
-            Vote
-          </div>
-          <div
-            className={`categoryitem ${btn === 3 ? 'enable' : 'disable'}`}
-            onClick={() => {
-              this.props.setCategory(3)
             }}>
             Information
           </div>

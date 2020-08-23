@@ -80,6 +80,32 @@ header {
   background-color: #202020;
 }
 
+.datebox {
+  width: 240px;
+  height: 30px;
+  margin: 1%;
+  margin-left: 5%;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-size: 15px;
+  text-align: center;
+  transition: 0.5s;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.datebox:hover {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.datepicker {
+  color: #f0f0f0;
+  border: none;
+  outline-width: 0;
+  background-color: transparent;
+}
+
 .weeklybox {
   text-align: center;
 }

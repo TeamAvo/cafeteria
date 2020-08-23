@@ -11,7 +11,7 @@ import Item from './Item.js'
 class Meal extends React.Component {
   render() {
     const d = this.props.data
-    if (this.props.status.weekLoaded) {
+    if (!this.props.status.callingAPI && d.isLoaded) {
       const breakfast = d.breakfast.data.days[this.props.dayOfWeek]
       const lunch = d.lunch.data.days[this.props.dayOfWeek]
       const dinner = d.dinner.data.days[this.props.dayOfWeek]

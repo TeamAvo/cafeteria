@@ -2,60 +2,27 @@
 
 import {
   SET_CATEGORY,
+  SET_DATE,
   SET_DAY_OF_WEEK,
   SET_DAY_OF_MONTH,
-  GET_WEEK_MEAL,
-  GET_MONTHLY_MEAL
+  SET_API_CALLING_STATUS,
+  GET_WEEK_MEAL
 } from './types.js'
 
 var today = new Date()
 
 const initialState = {
   status: {
-    today: today.getDay(),
-    date: today,
     category: 0,
+    date: today,
     dayOfWeek: today.getDay(),
-    dayOfMonth: 0,
-    weekLoaded: false,
-    monthLoaded: false
+    callingAPI: false
   },
   mealWeek: {
-    loaded: false,
+    isLoaded: false,
     breakfast: '',
     lunch: '',
     dinner: ''
-  },
-  mealMonthly: {
-    loaded: false,
-    mealMonth: '',
-    data: {
-      week1: {
-        breakfast: '',
-        lunch: '',
-        dinner: ''
-      },
-      week2: {
-        breakfast: '',
-        lunch: '',
-        dinner: ''
-      },
-      week3: {
-        breakfast: '',
-        lunch: '',
-        dinner: ''
-      },
-      week4: {
-        breakfast: '',
-        lunch: '',
-        dinner: ''
-      },
-      week5: {
-        breakfast: '',
-        lunch: '',
-        dinner: ''
-      }
-    }
   }
 }
 
@@ -67,6 +34,14 @@ export default (state = initialState, action) => {
         status: {
           ...state.status,
           category: action.payload
+        }
+      }
+    case SET_DATE:
+      return {
+        ...state,
+        status: {
+          ...state.status,
+          date: action.payload
         }
       }
     case SET_DAY_OF_WEEK:
@@ -85,19 +60,18 @@ export default (state = initialState, action) => {
           dayOfMonth: action.payload
         }
       }
-    case GET_WEEK_MEAL:
+    case SET_API_CALLING_STATUS:
       return {
         ...state,
         status: {
           ...state.status,
-          weekLoaded: true
-        },
-        mealWeek: action.payload
+          callingAPI: action.payload
+        }
       }
-    case GET_MONTHLY_MEAL:
+    case GET_WEEK_MEAL:
       return {
         ...state,
-        mealMonthly: action.payload
+        mealWeek: action.payload
       }
     default:
       return state

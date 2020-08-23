@@ -8,7 +8,7 @@ class Item extends React.Component {
       if (data[i].food != null) {
         var imgURL
         if (data[i].food.image_url == null) {
-          imgURL = `https://source.unsplash.com/100x100/?food,"${data[
+          imgURL = `https://source.unsplash.com/300x300/?food,"${data[
             i
           ].food.name.replace(/\s/gi, '_')}"`
         } else {
@@ -16,7 +16,9 @@ class Item extends React.Component {
         }
         items.push(
           <div key={i} className='item'>
-            <img src={imgURL} className='img' />
+            <a target='_blank' href={imgURL}>
+              <img src={imgURL} className='img' alt={data[i].food.name} />
+            </a>
             <p className='name'>{data[i].food.name}</p>
             <p className='description'>{data[i].food.description}</p>
           </div>

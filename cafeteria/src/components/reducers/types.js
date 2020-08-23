@@ -1,6 +1,8 @@
 export const SET_CATEGORY = 'SET_CATEGORY'
+export const SET_DATE = 'SET_DATE'
 export const SET_DAY_OF_WEEK = 'SET_DAY_OF_WEEK'
 export const SET_DAY_OF_MONTH = 'SET_DAY_OF_MONTH'
+export const SET_API_CALLING_STATUS = 'SET_API_CALLING_STATUS'
 
 export const GET_WEEK_MEAL = 'GET_WEEK_MEAL'
 export const GET_MONTHLY_MEAL = 'GET_MONTHLY_MEAL'
