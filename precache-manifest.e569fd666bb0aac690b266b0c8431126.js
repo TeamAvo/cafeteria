@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f52f608d48be8892949b4a1eff285e3b",
+    "revision": "43f8d80274b1865f00e0069dfd419b7b",
     "url": "/Cafeteria/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Cafeteria/static/css/2.25ff2e5b.chunk.css"
   },
   {
-    "revision": "9a35f79abe80fc3c4b09",
+    "revision": "8b30ae04faba6596b437",
     "url": "/Cafeteria/static/css/main.704f5f81.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Cafeteria/static/js/2.bc3b7f5d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9a35f79abe80fc3c4b09",
-    "url": "/Cafeteria/static/js/main.83113796.chunk.js"
+    "revision": "8b30ae04faba6596b437",
+    "url": "/Cafeteria/static/js/main.fa9dc8b4.chunk.js"
   },
   {
     "revision": "83617c2cfd4a25f840da",
