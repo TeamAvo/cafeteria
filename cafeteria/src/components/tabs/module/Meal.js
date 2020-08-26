@@ -2,15 +2,13 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import * as actions from '../reducers/actions'
+import * as actions from '../../reducers/actions'
 
 import Item from './Item.js'
 
-//https://avonoldfarms.flikisdining.com/menu/api/weeks/school/avon-old-farms/menu-type/lunch/2020/03/01/
-
 class Meal extends React.Component {
   render() {
-    const d = this.props.data
+    const d = this.props.mealWeek
     if (!this.props.status.callingAPI && d.isLoaded) {
       const breakfast = d.breakfast.data.days[this.props.dayOfWeek]
       const lunch = d.lunch.data.days[this.props.dayOfWeek]
@@ -36,6 +34,7 @@ class Meal extends React.Component {
 
 const mapStateToProps = (state) => ({
   status: state.status,
-  dayOfWeek: state.status.dayOfWeek
+  dayOfWeek: state.status.dayOfWeek,
+  mealWeek: state.mealWeek
 })
 export default compose(connect(mapStateToProps, actions))(Meal)

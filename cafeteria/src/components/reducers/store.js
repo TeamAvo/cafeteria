@@ -6,17 +6,21 @@ import {
   SET_DAY_OF_WEEK,
   SET_DAY_OF_MONTH,
   SET_API_CALLING_STATUS,
-  GET_WEEK_MEAL
+  GET_WEEK_MEAL,
+  GET_VOTE_INFO
 } from './types.js'
 
 var today = new Date()
+var est = new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
 
 const initialState = {
   status: {
     category: 0,
     date: today,
+    dateEST: est,
     dayOfWeek: today.getDay(),
-    callingAPI: false
+    callingAPI: false,
+    voteInfo: null
   },
   mealWeek: {
     isLoaded: false,
@@ -72,6 +76,14 @@ export default (state = initialState, action) => {
       return {
         ...state,
         mealWeek: action.payload
+      }
+    case GET_VOTE_INFO:
+      return {
+        ...state,
+        status: {
+          ...state.status,
+          voteInfo: action.payload
+        }
       }
     default:
       return state

@@ -1,5 +1,5 @@
 import React from 'react'
-import Weekly from './module/Weekly.js'
+import Day from './module/Day.js'
 import Meal from './module/Meal.js'
 
 import DatePicker from 'react-datepicker'
@@ -7,9 +7,9 @@ import 'react-datepicker/dist/react-datepicker.css'
 
 import { connect } from 'react-redux'
 import { compose } from 'redux'
-import * as actions from './reducers/actions'
+import * as actions from '../reducers/actions'
 
-class Display extends React.Component {
+class Weekly extends React.Component {
   handleChange = (date) => {
     if (date != null) {
       this.props.setDate(date)
@@ -21,8 +21,7 @@ class Display extends React.Component {
   }
 
   render() {
-    const category = this.props.status.category
-    const weekly = (
+    return (
       <>
         <div className='datebox color6'>
           Select Period
@@ -32,16 +31,22 @@ class Display extends React.Component {
             onChange={this.handleChange}
           />
         </div>
-        <Weekly />
-        <Meal data={this.props.mealWeek} day={this.props.status.dayOfWeek} />
+        <div className='weeklybox'>
+          <Day text='Sun' index={0} />
+          <Day text='Mon' index={1} />
+          <Day text='Tue' index={2} />
+          <Day text='Wed' index={3} />
+          <Day text='Thu' index={4} />
+          <Day text='Fri' index={5} />
+          <Day text='Sat' index={6} />
+        </div>
+        <Meal />
       </>
     )
-
-    return <>{category === 0 ? weekly : ''}</>
   }
 }
+
 const mapStateToProps = (state) => ({
-  status: state.status,
-  mealWeek: state.mealWeek
+  status: state.status
 })
-export default compose(connect(mapStateToProps, actions))(Display)
+export default compose(connect(mapStateToProps, actions))(Weekly)

@@ -8,9 +8,7 @@ class Item extends React.Component {
       if (data[i].food != null) {
         var imgURL
         if (data[i].food.image_url == null) {
-          imgURL = `https://source.unsplash.com/300x300/?food,"${data[
-            i
-          ].food.name.replace(/\s/gi, '_')}"`
+          imgURL = `https://source.unsplash.com/300x300/?${data[i].food.name}`
         } else {
           imgURL = data[i].food.image_url
         }
