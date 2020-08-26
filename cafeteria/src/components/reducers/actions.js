@@ -6,8 +6,9 @@ import {
   SET_DAY_OF_MONTH,
   SET_API_CALLING_STATUS,
   GET_WEEK_MEAL,
-  GET_VOTE_INFO,
-  POST_VOTE_DATA
+  SET_GOOGLE_INFO,
+  SET_VOTE_INFO,
+  GET_VOTE_INFO
 } from './types.js'
 
 const API_URL =
@@ -95,26 +96,57 @@ export const getWeekMeal = (newDate) => {
   }
 }
 
+export const setVote = (bool) => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_VOTE_INFO,
+      payload: bool
+    })
+  }
+}
+
 export const getVote = (data) => {
   return async (dispatch) => {
+    console.log('Get Vote Info...')
     const rsp = await axios.get(VOTE_URL, { params: data })
     console.log(rsp)
     dispatch({
       type: GET_VOTE_INFO,
-      payload: rsp
+      payload: {
+        isLoaded: true,
+        info: rsp
+      }
     })
   }
 }
 
 export const postVote = (data) => {
-  return async (dispatch) => {
-    console.log('asd')
+  return async () => {
+    console.log('Post Vote Data to API Server...')
     console.log(data)
     const rsp = await axios.post(VOTE_URL, data)
     console.log(rsp)
-    dispatch({
-      type: POST_VOTE_DATA,
-      payload: rsp
-    })
+  }
+}
+
+export const getGoogleID = (gData) => {
+  return async (dispatch) => {
+    if (gData != null) {
+      if (gData.profileObj.email.endsWith('@avonoldfarms.com')) {
+        dispatch({
+          type: SET_GOOGLE_INFO,
+          payload: {
+            isAOF: true,
+            data: gData
+          }
+        })
+      } else {
+        alert(
+          "You are not an Avon student. To prevent duplicate vote, please login with your Avon Old Farms School's google account."
+        )
+      }
+    } else {
+      alert('Google Login Error')
+    }
   }
 }

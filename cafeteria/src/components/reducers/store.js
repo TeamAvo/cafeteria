@@ -1,5 +1,3 @@
-// https://dev.to/hudsonmc/redux-cheatsheet-4i43
-
 import {
   SET_CATEGORY,
   SET_DATE,
@@ -7,6 +5,8 @@ import {
   SET_DAY_OF_MONTH,
   SET_API_CALLING_STATUS,
   GET_WEEK_MEAL,
+  SET_GOOGLE_INFO,
+  SET_VOTE_INFO,
   GET_VOTE_INFO
 } from './types.js'
 
@@ -20,13 +20,20 @@ const initialState = {
     dateEST: est,
     dayOfWeek: today.getDay(),
     callingAPI: false,
-    voteInfo: null
+    voteInfo: {
+      isLoaded: false,
+      info: null
+    }
   },
   mealWeek: {
     isLoaded: false,
     breakfast: '',
     lunch: '',
     dinner: ''
+  },
+  googleData: {
+    isAOF: false,
+    data: null
   }
 }
 
@@ -76,6 +83,22 @@ export default (state = initialState, action) => {
       return {
         ...state,
         mealWeek: action.payload
+      }
+    case SET_GOOGLE_INFO:
+      return {
+        ...state,
+        googleData: action.payload
+      }
+    case SET_VOTE_INFO:
+      return {
+        ...state,
+        status: {
+          ...state.status,
+          voteInfo: {
+            ...state.status.voteInfo,
+            isLoaded: action.payload
+          }
+        }
       }
     case GET_VOTE_INFO:
       return {
