@@ -9,6 +9,13 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import * as actions from '../reducers/actions'
 
+const ExampleCustomInput = ({ value, onClick }) => (
+  <div className='datepicker color6' onClick={onClick}>
+    Select Period <br />
+    {value}
+  </div>
+)
+
 class Weekly extends React.Component {
   handleChange = (date) => {
     if (date != null) {
@@ -23,12 +30,11 @@ class Weekly extends React.Component {
   render() {
     return (
       <>
-        <div className='datebox color6'>
-          Select Period
+        <div className='datebox'>
           <DatePicker
-            className='datepicker'
             selected={this.props.status.date}
             onChange={this.handleChange}
+            customInput={<ExampleCustomInput />}
           />
         </div>
         <div className='weeklybox'>
