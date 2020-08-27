@@ -4,24 +4,34 @@ class Item extends React.Component {
   render() {
     const data = this.props.data
     var items = []
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].food != null) {
-        var imgURL
-        if (data[i].food.image_url == null) {
-          imgURL = `https://source.unsplash.com/300x300/?${data[i].food.name}`
-        } else {
-          imgURL = data[i].food.image_url
+    if (data.length > 0) {
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].food != null) {
+          var imgURL
+          if (data[i].food.image_url == null) {
+            imgURL = `https://source.unsplash.com/300x300/?${data[i].food.name}`
+          } else {
+            imgURL = data[i].food.image_url
+          }
+          items.push(
+            <div key={i} className='item'>
+              <a target='_blank' href={imgURL}>
+                <img src={imgURL} alt={data[i].food.name} className='img' />
+              </a>
+              <p className='name'>{data[i].food.name}</p>
+              <p className='description'>{data[i].food.description}</p>
+            </div>
+          )
         }
-        items.push(
-          <div key={i} className='item'>
-            <a target='_blank' href={imgURL}>
-              <img src={imgURL} alt={data[i].food.name} className='img' />
-            </a>
-            <p className='name'>{data[i].food.name}</p>
-            <p className='description'>{data[i].food.description}</p>
-          </div>
-        )
       }
+    } else {
+      items = (
+        <div className='item'>
+          <h3 className='center'>
+            There is currently nothing on the menu today.
+          </h3>
+        </div>
+      )
     }
     return (
       <>

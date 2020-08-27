@@ -39,6 +39,14 @@ h5 {
   font-size: 12px;
 }
 
+.loading {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+  height: auto;
+}
+
 .container {
   display: grid;
 }
@@ -158,10 +166,10 @@ h5 {
   display: inline-block;
   vertical-align: middle;
   width: 22%;
-  margin-top: 1%;
+  margin-top: 2%;
   margin-left: 2%;
   margin-right: 2%;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   height: auto;
   transition: 0.5s;
   border-radius: 20px;
@@ -257,6 +265,10 @@ h5 {
   background: linear-gradient(135deg, #ff5b94, #ff9897);
 }
 
+.color8 {
+  background: linear-gradient(45deg, #28f29c, #0cb8e0);
+}
+
 @media (max-width: 1650px) {
   .itemcontainer {
     width: 28%;
@@ -285,6 +297,10 @@ h5 {
   .voteinfo {
     width: 90%;
   }
+
+  .loading {
+    width: 20%;
+  }
 }
 
 @media (max-width: 700px) {
@@ -299,6 +315,10 @@ h5 {
 }
 
 @media (max-width: 500px) {
+  .loading {
+    width: 30%;
+  }
+
   .title {
     margin-top: 15px;
     font-size: 34px;

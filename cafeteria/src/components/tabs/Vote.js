@@ -1,5 +1,6 @@
 import React from 'react'
 import VoteInfo from './module/VoteInfo.js'
+import Loading from './module/Loading.js'
 
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -44,14 +45,16 @@ class Vote extends React.Component {
   }
 
   render() {
-    var items = []
+    var items
     if (this.props.status.voteInfo.isLoaded) {
+      items = []
       const voteData = this.props.status.voteInfo.info.data
       for (var i = 0; i < voteData.length; i++) {
         console.log(voteData[i])
         items.push(<VoteInfo data={voteData[i]} key={i} />)
       }
     } else {
+      items = <Loading />
       this.props.getVote(this.req())
     }
 
