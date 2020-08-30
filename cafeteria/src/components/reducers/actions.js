@@ -15,6 +15,7 @@ const API_URL =
   'https://cors-anywhere.herokuapp.com/https://avonoldfarms.flikisdining.com/menu/api/weeks/school/avon-old-farms/menu-type/'
 
 const VOTE_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
+//const VOTE_URL = 'http://localhost:6969/' //testing server
 
 export const setCategory = (index) => {
   return (dispatch) => {
@@ -108,15 +109,19 @@ export const setVote = (bool) => {
 export const getVote = (data) => {
   return async (dispatch) => {
     console.log('Get Vote Info...')
-    const rsp = await axios.get(VOTE_URL, { params: data })
-    console.log(rsp)
-    dispatch({
-      type: GET_VOTE_INFO,
-      payload: {
-        isLoaded: true,
-        info: rsp
-      }
-    })
+    try {
+      const rsp = await axios.get(VOTE_URL, { params: data })
+      console.log(rsp)
+      dispatch({
+        type: GET_VOTE_INFO,
+        payload: {
+          isLoaded: true,
+          info: rsp
+        }
+      })
+    } catch (e) {
+      console.log(e)
+    }
   }
 }
 

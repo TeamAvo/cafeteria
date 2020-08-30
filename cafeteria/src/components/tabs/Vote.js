@@ -11,20 +11,25 @@ import { GoogleLogin } from 'react-google-login'
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+Date.prototype.addDays = function (days) {
+  var date = new Date(this.valueOf())
+  date.setDate(date.getDate() + days)
+  return date
+}
+
 class Vote extends React.Component {
   req() {
-    var date = new Date(this.props.status.dateEST)
+    const date = new Date(this.props.status.dateEST)
+    const date1 = new Date(date.toDateString())
+    const date2 = new Date(date.addDays(1).toDateString())
+    console.log(date)
     return {
-      y1: date.getFullYear(),
-      y2: date.getFullYear(),
-      m1: date.getMonth() - 1,
-      m2: date.getMonth() - 1,
-      d1: 0,
-      d2: 30
+      date1: date1,
+      date2: date2
     }
   }
 
-  sendVote(like) {
+  sendVote(rate) {
     var date = new Date(this.props.status.dateEST)
     var mealType
     if (date.getHours() < 5) mealType = 2
@@ -32,14 +37,10 @@ class Vote extends React.Component {
     else if (date.getHours() < 16) mealType = 1
 
     const data = {
-      time: {
-        year: date.getFullYear(),
-        month: date.getMonth() - 1,
-        day: date.getDate() - 1,
-        meal: mealType
-      },
+      time: date,
+      meal: mealType,
       email: this.props.gData.data.profileObj.email,
-      vote: like
+      vote: rate
     }
     return data
   }
@@ -92,16 +93,52 @@ class Vote extends React.Component {
           icon={faThumbsUp}
           size='2x'
           onClick={() => {
-            this.props.postVote(this.sendVote(true))
+            this.props.postVote(this.sendVote(0))
             this.props.setVote(false)
           }}
         />
 
         <FontAwesomeIcon
-          icon={faThumbsDown}
+          icon={faThumbsUp}
           size='2x'
           onClick={() => {
-            this.props.postVote(this.sendVote(false))
+            this.props.postVote(this.sendVote(1))
+            this.props.setVote(false)
+          }}
+        />
+
+        <FontAwesomeIcon
+          icon={faThumbsUp}
+          size='2x'
+          onClick={() => {
+            this.props.postVote(this.sendVote(2))
+            this.props.setVote(false)
+          }}
+        />
+
+        <FontAwesomeIcon
+          icon={faThumbsUp}
+          size='2x'
+          onClick={() => {
+            this.props.postVote(this.sendVote(3))
+            this.props.setVote(false)
+          }}
+        />
+
+        <FontAwesomeIcon
+          icon={faThumbsUp}
+          size='2x'
+          onClick={() => {
+            this.props.postVote(this.sendVote(4))
+            this.props.setVote(false)
+          }}
+        />
+
+        <FontAwesomeIcon
+          icon={faThumbsUp}
+          size='2x'
+          onClick={() => {
+            this.props.postVote(this.sendVote(5))
             this.props.setVote(false)
           }}
         />
@@ -117,7 +154,7 @@ class Vote extends React.Component {
 
           <h1>
             <br />
-            Vote result of this month
+            Today's vote result 🗳️
             <div>{items}</div>
           </h1>
         </div>
