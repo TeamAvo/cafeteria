@@ -11,13 +11,11 @@ import {
 } from './types.js'
 
 var today = new Date()
-var est = new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
 
 const initialState = {
   status: {
     category: 0,
     date: today,
-    dateEST: est,
     dayOfWeek: today.getDay(),
     callingAPI: false,
     voteInfo: {

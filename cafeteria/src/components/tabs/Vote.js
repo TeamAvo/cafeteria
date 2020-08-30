@@ -7,22 +7,23 @@ import { compose } from 'redux'
 import * as actions from '../reducers/actions'
 
 import { GoogleLogin } from 'react-google-login'
+import ReactStars from 'react-rating-stars-component'
 
-import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 Date.prototype.addDays = function (days) {
   var date = new Date(this.valueOf())
   date.setDate(date.getDate() + days)
-  return date
+  return new Date(date)
 }
+
+var rate = 2.5
 
 class Vote extends React.Component {
   req() {
-    const date = new Date(this.props.status.dateEST)
-    const date1 = new Date(date.toDateString())
-    const date2 = new Date(date.addDays(1).toDateString())
-    console.log(date)
+    const date1 = new Date().toDateString()
+    const date2 = new Date().addDays(1).toDateString()
     return {
       date1: date1,
       date2: date2
@@ -30,19 +31,25 @@ class Vote extends React.Component {
   }
 
   sendVote(rate) {
-    var date = new Date(this.props.status.dateEST)
+    var date = new Date()
     var mealType
     if (date.getHours() < 5) mealType = 2
     else if (date.getHours() < 11) mealType = 0
     else if (date.getHours() < 16) mealType = 1
+    else mealType = 2
 
     const data = {
-      time: date,
+      time: date.toDateString(),
       meal: mealType,
       email: this.props.gData.data.profileObj.email,
       vote: rate
     }
     return data
+  }
+
+  ratingChanged(newRating) {
+    rate = newRating
+    console.log(rate)
   }
 
   render() {
@@ -89,59 +96,25 @@ class Vote extends React.Component {
 
     const voteBtn = (
       <>
-        <FontAwesomeIcon
-          icon={faThumbsUp}
-          size='2x'
-          onClick={() => {
-            this.props.postVote(this.sendVote(0))
-            this.props.setVote(false)
-          }}
+        <ReactStars
+          value={2.5}
+          count={5}
+          onChange={this.ratingChanged}
+          size={50}
+          isHalf={true}
+          emptyIcon={<i className='far fa-star color1'></i>}
+          halfIcon={<i className='fa fa-star-half-alt color1'></i>}
+          fullIcon={<i className='fa fa-star color1'></i>}
+          activeColor='#fff'
         />
 
-        <FontAwesomeIcon
-          icon={faThumbsUp}
-          size='2x'
+        <div
+          className='categoryitem enable'
           onClick={() => {
-            this.props.postVote(this.sendVote(1))
-            this.props.setVote(false)
-          }}
-        />
-
-        <FontAwesomeIcon
-          icon={faThumbsUp}
-          size='2x'
-          onClick={() => {
-            this.props.postVote(this.sendVote(2))
-            this.props.setVote(false)
-          }}
-        />
-
-        <FontAwesomeIcon
-          icon={faThumbsUp}
-          size='2x'
-          onClick={() => {
-            this.props.postVote(this.sendVote(3))
-            this.props.setVote(false)
-          }}
-        />
-
-        <FontAwesomeIcon
-          icon={faThumbsUp}
-          size='2x'
-          onClick={() => {
-            this.props.postVote(this.sendVote(4))
-            this.props.setVote(false)
-          }}
-        />
-
-        <FontAwesomeIcon
-          icon={faThumbsUp}
-          size='2x'
-          onClick={() => {
-            this.props.postVote(this.sendVote(5))
-            this.props.setVote(false)
-          }}
-        />
+            this.props.postVote(this.sendVote(rate))
+          }}>
+          Submit
+        </div>
       </>
     )
 

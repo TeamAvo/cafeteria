@@ -27,7 +27,7 @@ class VoteInfo extends React.Component {
             <br />
             Meal: {mealType}
             <br />
-            Vote: {Math.round(data.vote / data.total)}
+            Rate: {Math.round(data.vote / data.total)}
             <br />
             Total Votes: {data.total}
           </h3>
