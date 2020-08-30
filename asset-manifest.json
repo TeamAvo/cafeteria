@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/Cafeteria/static/css/main.54342f67.chunk.css",
-    "main.js": "/Cafeteria/static/js/main.1fbd829f.chunk.js",
-    "main.js.map": "/Cafeteria/static/js/main.1fbd829f.chunk.js.map",
+    "main.js": "/Cafeteria/static/js/main.ad84c2aa.chunk.js",
+    "main.js.map": "/Cafeteria/static/js/main.ad84c2aa.chunk.js.map",
     "runtime-main.js": "/Cafeteria/static/js/runtime-main.ac6ce7fd.js",
     "runtime-main.js.map": "/Cafeteria/static/js/runtime-main.ac6ce7fd.js.map",
     "static/css/2.25ff2e5b.chunk.css": "/Cafeteria/static/css/2.25ff2e5b.chunk.css",
-    "static/js/2.01e389c7.chunk.js": "/Cafeteria/static/js/2.01e389c7.chunk.js",
-    "static/js/2.01e389c7.chunk.js.map": "/Cafeteria/static/js/2.01e389c7.chunk.js.map",
+    "static/js/2.f4bf43a2.chunk.js": "/Cafeteria/static/js/2.f4bf43a2.chunk.js",
+    "static/js/2.f4bf43a2.chunk.js.map": "/Cafeteria/static/js/2.f4bf43a2.chunk.js.map",
     "index.html": "/Cafeteria/index.html",
-    "precache-manifest.373666f8caf45823efa031d9a36842f8.js": "/Cafeteria/precache-manifest.373666f8caf45823efa031d9a36842f8.js",
+    "precache-manifest.914ba56ea0dc341e20ba6c8ca1627a03.js": "/Cafeteria/precache-manifest.914ba56ea0dc341e20ba6c8ca1627a03.js",
     "service-worker.js": "/Cafeteria/service-worker.js",
     "static/css/2.25ff2e5b.chunk.css.map": "/Cafeteria/static/css/2.25ff2e5b.chunk.css.map",
     "static/css/main.54342f67.chunk.css.map": "/Cafeteria/static/css/main.54342f67.chunk.css.map",
-    "static/js/2.01e389c7.chunk.js.LICENSE.txt": "/Cafeteria/static/js/2.01e389c7.chunk.js.LICENSE.txt"
+    "static/js/2.f4bf43a2.chunk.js.LICENSE.txt": "/Cafeteria/static/js/2.f4bf43a2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ac6ce7fd.js",
     "static/css/2.25ff2e5b.chunk.css",
-    "static/js/2.01e389c7.chunk.js",
+    "static/js/2.f4bf43a2.chunk.js",
     "static/css/main.54342f67.chunk.css",
-    "static/js/main.1fbd829f.chunk.js"
+    "static/js/main.ad84c2aa.chunk.js"
   ]
 }
