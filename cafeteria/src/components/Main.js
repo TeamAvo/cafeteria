@@ -3,6 +3,7 @@ import CategoryBar from './CategoryBar.js'
 import Weekly from './tabs/Weekly.js'
 import Vote from './tabs/Vote.js'
 import Info from './tabs/Info.js'
+import Comment from './tabs/Comment.js'
 
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -23,7 +24,8 @@ class Main extends React.Component {
         <div>
           {category === 0 ? <Weekly /> : ''}
           {category === 1 ? <Vote /> : ''}
-          {category === 2 ? <Info /> : ''}
+          {category === 2 ? <Comment /> : ''}
+          {category === 3 ? <Info /> : ''}
         </div>
       </>
     )

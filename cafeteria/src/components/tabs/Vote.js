@@ -33,9 +33,8 @@ class Vote extends React.Component {
   sendVote(rate) {
     var date = new Date()
     var mealType
-    if (date.getHours() < 5) mealType = 2
-    else if (date.getHours() < 11) mealType = 0
-    else if (date.getHours() < 16) mealType = 1
+    if (date.getHours() < 11) mealType = 0
+    else if (date.getHours() < 17) mealType = 1
     else mealType = 2
 
     const data = {
@@ -107,7 +106,6 @@ class Vote extends React.Component {
           fullIcon={<i className='fa fa-star color1'></i>}
           activeColor='#fff'
         />
-
         <div
           className='categoryitem enable'
           onClick={() => {
@@ -115,6 +113,7 @@ class Vote extends React.Component {
           }}>
           Submit
         </div>
+        test
       </>
     )
 

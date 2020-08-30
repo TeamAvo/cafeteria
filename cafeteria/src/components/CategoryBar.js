@@ -28,6 +28,13 @@ class CategoryBar extends React.Component {
             onClick={() => {
               this.props.setCategory(2)
             }}>
+            Comment
+          </div>
+          <div
+            className={`categoryitem ${btn === 3 ? 'enable' : 'disable'}`}
+            onClick={() => {
+              this.props.setCategory(3)
+            }}>
             Information
           </div>
         </div>
