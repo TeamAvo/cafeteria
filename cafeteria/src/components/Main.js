@@ -18,7 +18,7 @@ class Main extends React.Component {
     return (
       <>
         <header>
-          <div className='title'>Avo Food</div>
+          <div className='title'>Avon Food</div>
         </header>
         <CategoryBar />
         <div>

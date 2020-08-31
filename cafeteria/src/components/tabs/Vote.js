@@ -113,7 +113,6 @@ class Vote extends React.Component {
           }}>
           Submit
         </div>
-        test
       </>
     )
 
