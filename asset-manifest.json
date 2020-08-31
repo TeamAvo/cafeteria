@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Cafeteria/static/css/main.54342f67.chunk.css",
+    "main.css": "/Cafeteria/static/css/main.6dde4d5c.chunk.css",
     "main.js": "/Cafeteria/static/js/main.2e45dd0e.chunk.js",
     "main.js.map": "/Cafeteria/static/js/main.2e45dd0e.chunk.js.map",
     "runtime-main.js": "/Cafeteria/static/js/runtime-main.ac6ce7fd.js",
@@ -9,17 +9,17 @@
     "static/js/2.d6e91291.chunk.js": "/Cafeteria/static/js/2.d6e91291.chunk.js",
     "static/js/2.d6e91291.chunk.js.map": "/Cafeteria/static/js/2.d6e91291.chunk.js.map",
     "index.html": "/Cafeteria/index.html",
-    "precache-manifest.465e2b835751051337c9321802a28e6e.js": "/Cafeteria/precache-manifest.465e2b835751051337c9321802a28e6e.js",
+    "precache-manifest.775aed31af54ed38ef8b22c1de0c3777.js": "/Cafeteria/precache-manifest.775aed31af54ed38ef8b22c1de0c3777.js",
     "service-worker.js": "/Cafeteria/service-worker.js",
     "static/css/2.25ff2e5b.chunk.css.map": "/Cafeteria/static/css/2.25ff2e5b.chunk.css.map",
-    "static/css/main.54342f67.chunk.css.map": "/Cafeteria/static/css/main.54342f67.chunk.css.map",
+    "static/css/main.6dde4d5c.chunk.css.map": "/Cafeteria/static/css/main.6dde4d5c.chunk.css.map",
     "static/js/2.d6e91291.chunk.js.LICENSE.txt": "/Cafeteria/static/js/2.d6e91291.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ac6ce7fd.js",
     "static/css/2.25ff2e5b.chunk.css",
     "static/js/2.d6e91291.chunk.js",
-    "static/css/main.54342f67.chunk.css",
+    "static/css/main.6dde4d5c.chunk.css",
     "static/js/main.2e45dd0e.chunk.js"
   ]
 }
