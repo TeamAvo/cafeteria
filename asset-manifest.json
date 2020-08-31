@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Cafeteria/static/css/main.e3ff8946.chunk.css",
-    "main.js": "/Cafeteria/static/js/main.2e45dd0e.chunk.js",
-    "main.js.map": "/Cafeteria/static/js/main.2e45dd0e.chunk.js.map",
+    "main.css": "/Cafeteria/static/css/main.4668b0ea.chunk.css",
+    "main.js": "/Cafeteria/static/js/main.f8cda075.chunk.js",
+    "main.js.map": "/Cafeteria/static/js/main.f8cda075.chunk.js.map",
     "runtime-main.js": "/Cafeteria/static/js/runtime-main.ac6ce7fd.js",
     "runtime-main.js.map": "/Cafeteria/static/js/runtime-main.ac6ce7fd.js.map",
     "static/css/2.25ff2e5b.chunk.css": "/Cafeteria/static/css/2.25ff2e5b.chunk.css",
     "static/js/2.d6e91291.chunk.js": "/Cafeteria/static/js/2.d6e91291.chunk.js",
     "static/js/2.d6e91291.chunk.js.map": "/Cafeteria/static/js/2.d6e91291.chunk.js.map",
     "index.html": "/Cafeteria/index.html",
-    "precache-manifest.e68500f2e79158fd21ed7b38e46acf62.js": "/Cafeteria/precache-manifest.e68500f2e79158fd21ed7b38e46acf62.js",
+    "precache-manifest.c7c7607ed42df8a62d6ab3879c2e12a3.js": "/Cafeteria/precache-manifest.c7c7607ed42df8a62d6ab3879c2e12a3.js",
     "service-worker.js": "/Cafeteria/service-worker.js",
     "static/css/2.25ff2e5b.chunk.css.map": "/Cafeteria/static/css/2.25ff2e5b.chunk.css.map",
-    "static/css/main.e3ff8946.chunk.css.map": "/Cafeteria/static/css/main.e3ff8946.chunk.css.map",
+    "static/css/main.4668b0ea.chunk.css.map": "/Cafeteria/static/css/main.4668b0ea.chunk.css.map",
     "static/js/2.d6e91291.chunk.js.LICENSE.txt": "/Cafeteria/static/js/2.d6e91291.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ac6ce7fd.js",
     "static/css/2.25ff2e5b.chunk.css",
     "static/js/2.d6e91291.chunk.js",
-    "static/css/main.e3ff8946.chunk.css",
-    "static/js/main.2e45dd0e.chunk.js"
+    "static/css/main.4668b0ea.chunk.css",
+    "static/js/main.f8cda075.chunk.js"
   ]
 }
