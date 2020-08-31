@@ -1,4 +1,6 @@
 import React from 'react'
+import CommentBox from './module/CommentBox.js'
+import Loading from './module/Loading.js'
 
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -10,11 +12,12 @@ class Comment extends React.Component {
   sendComment() {
     var date = new Date()
     var name = 'admin'
-    var email = 'admin@test.com'
+    var email = 'test2@test.com'
     var pw = md5('1234')
-    var mealType = 'Breakfast'
+    var mealType = 'Lunch'
+    var menu = 'apple'
     var like = true
-    var comment = '12345678910'
+    var comment = 'Hi there! this is a test!'
 
     const data = {
       date: date.toDateString(),
@@ -22,6 +25,7 @@ class Comment extends React.Component {
       email: email,
       pw: pw,
       meal_type: mealType,
+      menu: menu,
       like: like,
       comment: comment
     }
@@ -29,7 +33,7 @@ class Comment extends React.Component {
   }
 
   deleteComment() {
-    var _id = '5f4bdaf002c9182a54bb1a66'
+    var _id = ''
     var pw = md5('1234')
 
     const data = {
@@ -40,15 +44,28 @@ class Comment extends React.Component {
   }
 
   render() {
+    var items
+    if (this.props.status.commentData.isLoaded) {
+      items = []
+      const comment = this.props.status.commentData.data.data
+      for (var i = 0; i < comment.length; i++) {
+        console.log(comment[i])
+        items.push(<CommentBox data={comment[i]} key={i} />)
+      }
+    } else {
+      items = <Loading />
+      this.props.getComment({ date: new Date() })
+    }
     return (
       <>
         <div className='textbox'>
           <h1>Comment</h1>
           <h2>This section is under development.</h2>
+          {items}
           <div
             className='categoryitem enable'
             onClick={() => {
-              //this.props.postComment(this.sendComment())
+              this.props.postComment(this.sendComment())
             }}>
             Submit
           </div>
@@ -56,7 +73,7 @@ class Comment extends React.Component {
           <div
             className='categoryitem enable'
             onClick={() => {
-              //this.props.deleteComment(this.deleteComment())
+              this.props.deleteComment(this.deleteComment())
             }}>
             Delete
           </div>

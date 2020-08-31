@@ -9,9 +9,6 @@ import * as actions from '../reducers/actions'
 import { GoogleLogin } from 'react-google-login'
 import ReactStars from 'react-rating-stars-component'
 
-//import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 Date.prototype.addDays = function (days) {
   var date = new Date(this.valueOf())
   date.setDate(date.getDate() + days)

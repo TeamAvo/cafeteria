@@ -7,20 +7,25 @@ import {
   GET_WEEK_MEAL,
   SET_GOOGLE_INFO,
   SET_VOTE_INFO,
-  GET_VOTE_INFO
+  GET_VOTE_INFO,
+  GET_COMMENT_DATA
 } from './types.js'
 
 var today = new Date()
 
 const initialState = {
   status: {
-    category: 0,
+    category: 2,
     date: today,
     dayOfWeek: today.getDay(),
     callingAPI: false,
     voteInfo: {
       isLoaded: false,
       info: null
+    },
+    commentData: {
+      isLoaded: false,
+      data: null
     }
   },
   mealWeek: {
@@ -104,6 +109,14 @@ export default (state = initialState, action) => {
         status: {
           ...state.status,
           voteInfo: action.payload
+        }
+      }
+    case GET_COMMENT_DATA:
+      return {
+        ...state,
+        status: {
+          ...state.status,
+          commentData: action.payload
         }
       }
     default:

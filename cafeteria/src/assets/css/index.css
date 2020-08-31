@@ -239,6 +239,71 @@ h5 {
   padding-right: 2%;
 }
 
+.commentbox {
+  width: 30%;
+  height: auto;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5%;
+  transition: 0.5s;
+  border-radius: 30px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  background-color: #303030;
+}
+
+.commentbox .text {
+  margin-left: 15px;
+}
+
+.userinfo {
+  height: auto;
+  margin: 3%;
+  padding: 2%;
+  text-align: center;
+  inline-size: auto;
+  transition: 0.5s;
+  border-radius: 40px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.statusbox {
+  width: 94%;
+  margin: 3%;
+  display: flex;
+  position: relative;
+}
+
+.sectionbox {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  margin-left: 3%;
+  margin-right: 0px;
+  overflow: hidden;
+  border-radius: 40px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  transition: 1s;
+}
+
+.sectionbox:hover {
+  width: 500%;
+}
+
+.timebox {
+  width: 100%;
+  min-width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 0px;
+  padding-left: 5px;
+  overflow: hidden;
+  border-radius: 40px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  transition: 1s;
+}
+
 .color1 {
   background: linear-gradient(135deg, #ea4d2c, #ff881b);
 }

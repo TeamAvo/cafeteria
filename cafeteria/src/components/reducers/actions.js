@@ -8,14 +8,15 @@ import {
   GET_WEEK_MEAL,
   SET_GOOGLE_INFO,
   SET_VOTE_INFO,
-  GET_VOTE_INFO
+  GET_VOTE_INFO,
+  GET_COMMENT_DATA
 } from './types.js'
 
 const API_URL =
   'https://cors-anywhere.herokuapp.com/https://avonoldfarms.flikisdining.com/menu/api/weeks/school/avon-old-farms/menu-type/'
 
-const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
-//const BACKEND_URL = 'http://localhost:6969/'
+//const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
+const BACKEND_URL = 'http://localhost:6969/'
 
 export const setCategory = (index) => {
   return (dispatch) => {
@@ -149,6 +150,26 @@ export const deleteComment = (data) => {
     console.log(data)
     const rsp = await axios.post(BACKEND_URL + 'delete_comment/', data)
     console.log(rsp)
+  }
+}
+
+export const getComment = (data) => {
+  return async (dispatch) => {
+    console.log('Request comment data from the database...')
+    console.log(data)
+    try {
+      const rsp = await axios.get(BACKEND_URL + 'comment/', { params: data })
+      console.log(rsp)
+      dispatch({
+        type: GET_COMMENT_DATA,
+        payload: {
+          isLoaded: true,
+          data: rsp
+        }
+      })
+    } catch (e) {
+      console.log(e)
+    }
   }
 }
 

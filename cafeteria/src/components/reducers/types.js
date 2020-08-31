@@ -8,3 +8,4 @@ export const SET_VOTE_INFO = 'SET_VOTE_INFO'
 
 export const GET_WEEK_MEAL = 'GET_WEEK_MEAL'
 export const GET_VOTE_INFO = 'GET_VOTE_INFO'
+export const GET_COMMENT_DATA = 'GET_COMMENT_DATA'
