@@ -9,11 +9,7 @@ class Loading extends React.Component {
           <div className='loading'>
             <ReactLoading type='bars' width='100%' height='auto' />
           </div>
-          <h4 className='center'>
-            Using Chrome?
-            <br />
-            YOUR RAM IS MINE!
-          </h4>
+          <h4 className='center'>Loading 😎</h4>
         </div>
       </>
     )

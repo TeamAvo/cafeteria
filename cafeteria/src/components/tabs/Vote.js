@@ -18,15 +18,6 @@ Date.prototype.addDays = function (days) {
 var rate = 2.5
 
 class Vote extends React.Component {
-  req() {
-    const date1 = new Date().toDateString()
-    const date2 = new Date().addDays(1).toDateString()
-    return {
-      date1: date1,
-      date2: date2
-    }
-  }
-
   sendVote(rate) {
     var date = new Date()
     var mealType
@@ -43,9 +34,15 @@ class Vote extends React.Component {
     return data
   }
 
+  getMealType() {
+    var date = new Date()
+    if (date.getHours() < 11) return 'Breakfast'
+    else if (date.getHours() < 17) return 'Lunch'
+    else return 'Dinner'
+  }
+
   ratingChanged(newRating) {
     rate = newRating
-    console.log(rate)
   }
 
   render() {
@@ -59,14 +56,15 @@ class Vote extends React.Component {
       }
     } else {
       items = <Loading />
-      this.props.getVote(this.req())
+      this.props.getVote(new Date())
     }
 
     var loginText
+    var meal = this.getMealType()
     if (this.props.gData.isAOF) {
       loginText = (
         <h2>
-          Hi, {this.props.gData.data.profileObj.name}! How was food at Avon
+          Hi, {this.props.gData.data.profileObj.name}! How was {meal} at Avon
           today?
         </h2>
       )
@@ -101,6 +99,7 @@ class Vote extends React.Component {
           emptyIcon={<i className='far fa-star color1'></i>}
           halfIcon={<i className='fa fa-star-half-alt color1'></i>}
           fullIcon={<i className='fa fa-star color1'></i>}
+          color='#303030'
           activeColor='#fff'
         />
         <div

@@ -13,7 +13,7 @@ class Main extends React.Component {
   render() {
     const category = this.props.status.category
     if (!this.props.status.callingAPI && !this.props.mealWeek.isLoaded) {
-      this.props.getWeekMeal('2020/03/01')
+      this.props.getWeekMeal(this.props.status.date)
     }
     return (
       <>

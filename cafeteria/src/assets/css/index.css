@@ -41,6 +41,14 @@ h5 {
   font-size: 12px;
 }
 
+a {
+  color: #0cb8e0;
+}
+
+.no-click {
+  pointer-events: none;
+}
+
 .loading {
   display: block;
   margin-left: auto;
@@ -66,6 +74,14 @@ h5 {
   font-size: 50px;
   text-align: center;
   transition: 0.5s;
+}
+
+.subtitle {
+  font-size: 40px;
+}
+
+.textarea {
+  width: 60%;
 }
 
 .category {
@@ -361,6 +377,10 @@ h5 {
     width: 70%;
   }
 
+  .textarea {
+    width: 100%;
+  }
+
   .voteinfo {
     width: 90%;
   }
@@ -382,6 +402,26 @@ h5 {
 }
 
 @media (max-width: 500px) {
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+
+  h5 {
+    font-size: 12px;
+  }
+
   .loading {
     width: 30%;
   }
@@ -391,6 +431,10 @@ h5 {
     font-size: 34px;
     text-align: center;
     transition: 0.5s;
+  }
+
+  .subtitle {
+    font-size: 30px;
   }
 
   .category {

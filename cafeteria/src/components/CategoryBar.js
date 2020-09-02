@@ -28,7 +28,7 @@ class CategoryBar extends React.Component {
             onClick={() => {
               this.props.setCategory(2)
             }}>
-            Comment
+            Community
           </div>
           <div
             className={`categoryitem ${btn === 3 ? 'enable' : 'disable'}`}

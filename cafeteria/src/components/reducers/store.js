@@ -11,11 +11,11 @@ import {
   GET_COMMENT_DATA
 } from './types.js'
 
-var today = new Date()
+var today = new Date('2020/03/01')
 
 const initialState = {
   status: {
-    category: 2,
+    category: 0,
     date: today,
     dayOfWeek: today.getDay(),
     callingAPI: false,

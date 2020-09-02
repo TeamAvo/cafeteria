@@ -15,9 +15,8 @@ class Item extends React.Component {
           }
           items.push(
             <div key={i} className='item'>
-              <a target='_blank' href={imgURL}>
-                <img src={imgURL} alt={data[i].food.name} className='img' />
-              </a>
+              <img src={imgURL} alt={data[i].food.name} className='img' />
+              {/*<a target='_blank' href={imgURL}></a>*/}
               <p className='name'>{data[i].food.name}</p>
               <p className='description'>{data[i].food.description}</p>
             </div>

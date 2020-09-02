@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactStars from 'react-rating-stars-component'
 
 class VoteInfo extends React.Component {
   render() {
@@ -23,13 +24,22 @@ class VoteInfo extends React.Component {
       <>
         <div className='voteinfo color5'>
           <h3>
-            Date: {new Date(data.time.date).toDateString()}
-            <br />
-            Meal: {mealType}
-            <br />
-            Rate: {Math.round(data.vote / data.total)}
-            <br />
-            Total Votes: {data.total}
+            {new Date(data.time.date).toDateString()}, {mealType}
+            <ReactStars
+              value={data.vote / data.total}
+              count={5}
+              size={50}
+              isHalf={true}
+              emptyIcon={<i className='far fa-star color1'></i>}
+              halfIcon={<i className='fa fa-star-half-alt color1'></i>}
+              fullIcon={<i className='fa fa-star color1'></i>}
+              activeColor='#fff'
+              color='#303030'
+              classNames='no-click'
+            />
+            <h4>
+              Rate: {(data.vote / data.total).toFixed(2)} (Total: {data.total})
+            </h4>
           </h3>
         </div>
       </>

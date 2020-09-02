@@ -15,8 +15,8 @@ import {
 const API_URL =
   'https://cors-anywhere.herokuapp.com/https://avonoldfarms.flikisdining.com/menu/api/weeks/school/avon-old-farms/menu-type/'
 
-//const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
-const BACKEND_URL = 'http://localhost:6969/'
+const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
+//const BACKEND_URL = 'http://localhost:6969/'
 
 export const setCategory = (index) => {
   return (dispatch) => {
@@ -98,19 +98,14 @@ export const getWeekMeal = (newDate) => {
   }
 }
 
-export const setVote = (bool) => {
-  return (dispatch) => {
-    dispatch({
-      type: SET_VOTE_INFO,
-      payload: bool
-    })
-  }
-}
-
-export const getVote = (data) => {
+export const getVote = (date) => {
   return async (dispatch) => {
     console.log('Get Vote Info...')
     try {
+      const data = {
+        date1: new Date(date).toDateString(),
+        date2: new Date(date).addDays(1).toDateString()
+      }
       const rsp = await axios.get(BACKEND_URL + 'vote/', { params: data })
       console.log(rsp)
       dispatch({
@@ -127,11 +122,20 @@ export const getVote = (data) => {
 }
 
 export const postVote = (data) => {
-  return async () => {
-    console.log('Post Vote Data to API Server...')
-    console.log(data)
-    const rsp = await axios.post(BACKEND_URL + 'vote/', data)
-    console.log(rsp)
+  return async (dispatch) => {
+    try {
+      console.log('Post Vote Data to API Server...')
+      console.log(data)
+      const rsp = await axios.post(BACKEND_URL + 'vote/', data)
+      console.log(rsp)
+      dispatch(await getVote(new Date()))
+
+      alert('Your vote has been successfully submitted!')
+    } catch {
+      alert(
+        'You already voted on this poll. You can only vote once for each meal.'
+      )
+    }
   }
 }
 
