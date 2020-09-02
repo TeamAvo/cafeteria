@@ -80,7 +80,7 @@ class Vote extends React.Component {
 
     const googleLogin = (
       <GoogleLogin
-        clientId='340618285609-r6colaj22eh4tn822j4723t8bolhsobb.apps.googleusercontent.com'
+        clientId={this.props.gData.id}
         buttonText='Login'
         onSuccess={this.props.getGoogleID}
         onFailure={this.props.getGoogleID}

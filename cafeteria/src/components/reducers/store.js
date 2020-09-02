@@ -15,7 +15,7 @@ var today = new Date('2020/03/01')
 
 const initialState = {
   status: {
-    category: 0,
+    category: 2,
     date: today,
     dayOfWeek: today.getDay(),
     callingAPI: false,
@@ -29,12 +29,14 @@ const initialState = {
     }
   },
   mealWeek: {
-    isLoaded: false,
+    isLoaded: true,
     breakfast: '',
     lunch: '',
     dinner: ''
   },
   googleData: {
+    id:
+      '340618285609-r6colaj22eh4tn822j4723t8bolhsobb.apps.googleusercontent.com',
     isAOF: false,
     data: null
   }
@@ -91,17 +93,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         googleData: action.payload
-      }
-    case SET_VOTE_INFO:
-      return {
-        ...state,
-        status: {
-          ...state.status,
-          voteInfo: {
-            ...state.status.voteInfo,
-            isLoaded: action.payload
-          }
-        }
       }
     case GET_VOTE_INFO:
       return {

@@ -7,7 +7,6 @@ import {
   SET_API_CALLING_STATUS,
   GET_WEEK_MEAL,
   SET_GOOGLE_INFO,
-  SET_VOTE_INFO,
   GET_VOTE_INFO,
   GET_COMMENT_DATA
 } from './types.js'
@@ -15,8 +14,8 @@ import {
 const API_URL =
   'https://cors-anywhere.herokuapp.com/https://avonoldfarms.flikisdining.com/menu/api/weeks/school/avon-old-farms/menu-type/'
 
-const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
-//const BACKEND_URL = 'http://localhost:6969/'
+//const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
+const BACKEND_URL = 'http://localhost:6969/'
 
 export const setCategory = (index) => {
   return (dispatch) => {
@@ -140,20 +139,34 @@ export const postVote = (data) => {
 }
 
 export const postComment = (data) => {
-  return async () => {
-    console.log('Post Comment Data to API Server...')
-    console.log(data)
-    const rsp = await axios.post(BACKEND_URL + 'comment/', data)
-    console.log(rsp)
+  return async (dispatch) => {
+    try {
+      console.log('Post Comment Data to API Server...')
+      console.log(data)
+      const rsp = await axios.post(BACKEND_URL + 'comment/', data)
+      console.log(rsp)
+      dispatch(await getComment({ date: new Date() }))
+      alert('Your comment has been successfully submitted!')
+    } catch {
+      alert(
+        'You already submitted on this meal. You can only vote once for each meal.'
+      )
+    }
   }
 }
 
 export const deleteComment = (data) => {
-  return async () => {
-    console.log('Request delete comment from the database...')
-    console.log(data)
-    const rsp = await axios.post(BACKEND_URL + 'delete_comment/', data)
-    console.log(rsp)
+  return async (dispatch) => {
+    try {
+      console.log('Request delete comment from the database...')
+      console.log(data)
+      const rsp = await axios.post(BACKEND_URL + 'delete_comment/', data)
+      console.log(rsp)
+      dispatch(await getComment({ date: new Date() }))
+      alert('Your comment has been successfully removed!')
+    } catch {
+      alert('Incorrect password')
+    }
   }
 }
 

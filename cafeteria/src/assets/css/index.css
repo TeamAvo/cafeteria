@@ -256,7 +256,7 @@ a {
 }
 
 .commentbox {
-  width: 30%;
+  width: 50%;
   height: auto;
   margin-top: 5%;
   margin-left: auto;
@@ -277,7 +277,7 @@ a {
   margin: 3%;
   padding: 2%;
   text-align: center;
-  inline-size: auto;
+  line-height: auto;
   transition: 0.5s;
   border-radius: 40px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
@@ -307,17 +307,76 @@ a {
   width: 500%;
 }
 
+.sectionbox .pw {
+  float: left;
+  position: relative;
+  margin: 7px;
+  width: 40%;
+  height: 26px;
+  margin-bottom: 7px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: white;
+  background-color: transparent;
+}
+
+.sectionbox .pw::placeholder {
+  color: white;
+}
+
+.sectionbox .deletebtn {
+  float: right;
+  margin: 6px;
+  height: 28px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  border-radius: 13px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  background-color: #252525;
+}
+
+.sectionbox .ico {
+  float: left;
+  margin: 7px;
+  width: 26px;
+  height: 26px;
+}
+
 .timebox {
+  position: relative;
   width: 100%;
   min-width: 40px;
   height: 40px;
   line-height: 40px;
   margin-left: 0px;
   padding-left: 5px;
+  font-size: 16px;
+  text-align: center;
   overflow: hidden;
   border-radius: 40px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
   transition: 1s;
+}
+
+.postbox {
+  width: 50%;
+  height: auto;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5%;
+  transition: 0.5s;
+  border-radius: 30px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  background-color: #303030;
+}
+
+.commentbox .text {
+  margin-left: 15px;
 }
 
 .color1 {
