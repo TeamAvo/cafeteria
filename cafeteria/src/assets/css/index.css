@@ -45,6 +45,14 @@ a {
   color: #0cb8e0;
 }
 
+input:invalid {
+  border: 2px solid #f650a0 !important;
+}
+
+textarea:invalid {
+  border: 2px solid #f650a0 !important;
+}
+
 .no-click {
   pointer-events: none;
 }
@@ -255,8 +263,15 @@ a {
   padding-right: 2%;
 }
 
+.comment {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 0.5s;
+}
+
 .commentbox {
-  width: 50%;
+  width: 100%;
   height: auto;
   margin-top: 5%;
   margin-left: auto;
@@ -266,10 +281,6 @@ a {
   border-radius: 30px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
   background-color: #303030;
-}
-
-.commentbox .text {
-  margin-left: 15px;
 }
 
 .userinfo {
@@ -311,7 +322,7 @@ a {
   float: left;
   position: relative;
   margin: 7px;
-  width: 40%;
+  width: 60%;
   height: 26px;
   margin-bottom: 7px;
   border: none;
@@ -363,7 +374,7 @@ a {
 }
 
 .postbox {
-  width: 50%;
+  width: 100%;
   height: auto;
   margin-top: 5%;
   margin-left: auto;
@@ -375,8 +386,74 @@ a {
   background-color: #303030;
 }
 
-.commentbox .text {
-  margin-left: 15px;
+.postbox .textarea {
+  width: 90%;
+  height: auto;
+  padding: 4%;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-radius: 30px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  background-color: #202020;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.postbox .menu {
+  width: auto;
+  height: auto;
+  padding: 12px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.postbox .statusbox {
+  width: 100%;
+  display: flex;
+  position: relative;
+  margin: 0px !important;
+  margin-bottom: 7px;
+}
+
+.postbox .pw {
+  float: left;
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 12px;
+  margin-right: 15px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: white;
+  background-color: #202020;
+  border-radius: 30px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.postbox .submit {
+  float: right;
+  position: relative;
+  width: auto;
+  height: auto;
+  padding: 12px;
+  margin-right: 0px;
+  font-size: 18px;
+  line-height: 18px;
+  text-align: center;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.textbox {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 2% !important;
+  margin-bottom: 2% !important;
 }
 
 .color1 {
@@ -431,6 +508,12 @@ a {
   }
 }
 
+@media (max-width: 1500px) {
+  .comment {
+    width: 50%;
+  }
+}
+
 @media (max-width: 1000px) {
   .itemcontainer {
     width: 70%;
@@ -447,6 +530,10 @@ a {
   .loading {
     width: 20%;
   }
+
+  .comment {
+    width: 60%;
+  }
 }
 
 @media (max-width: 700px) {
@@ -457,6 +544,10 @@ a {
   .datepicker {
     width: 200px;
     height: 30px;
+  }
+
+  .comment {
+    width: 70%;
   }
 }
 
@@ -517,5 +608,9 @@ a {
   .day:hover {
     padding-left: 5px;
     padding-right: 5px;
+  }
+
+  .comment {
+    width: 94%;
   }
 }

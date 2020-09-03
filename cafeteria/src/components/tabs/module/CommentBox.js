@@ -33,7 +33,7 @@ class CommentBox extends React.Component {
           <div className='userinfo color8'>
             {this.props.data.name} ({this.props.data.email})
           </div>
-          <div className='text'>
+          <div className='textbox'>
             <h4>{this.props.data.comment}</h4>
           </div>
           <div className='statusbox'>

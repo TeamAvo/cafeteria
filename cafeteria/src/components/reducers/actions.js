@@ -6,7 +6,8 @@ import {
   SET_DAY_OF_MONTH,
   SET_API_CALLING_STATUS,
   GET_WEEK_MEAL,
-  SET_GOOGLE_INFO,
+  SET_UPVOTE,
+  GET_GOOGLE_INFO,
   GET_VOTE_INFO,
   GET_COMMENT_DATA
 } from './types.js'
@@ -14,8 +15,8 @@ import {
 const API_URL =
   'https://cors-anywhere.herokuapp.com/https://avonoldfarms.flikisdining.com/menu/api/weeks/school/avon-old-farms/menu-type/'
 
-//const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
-const BACKEND_URL = 'http://localhost:6969/'
+const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
+//const BACKEND_URL = 'http://localhost:6969/'
 
 export const setCategory = (index) => {
   return (dispatch) => {
@@ -57,6 +58,15 @@ export const setCallingStatus = (bool) => {
   return (dispatch) => {
     dispatch({
       type: SET_API_CALLING_STATUS,
+      payload: bool
+    })
+  }
+}
+
+export const setCommentVote = (bool) => {
+  return (dispatch) => {
+    dispatch({
+      type: SET_UPVOTE,
       payload: bool
     })
   }
@@ -140,6 +150,8 @@ export const postVote = (data) => {
 
 export const postComment = (data) => {
   return async (dispatch) => {
+    if (data == null) return
+
     try {
       console.log('Post Comment Data to API Server...')
       console.log(data)
@@ -195,7 +207,7 @@ export const getGoogleID = (gData) => {
     if (gData != null) {
       if (gData.profileObj.email.endsWith('@avonoldfarms.com')) {
         dispatch({
-          type: SET_GOOGLE_INFO,
+          type: GET_GOOGLE_INFO,
           payload: {
             isAOF: true,
             data: gData

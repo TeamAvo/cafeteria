@@ -1,9 +1,5 @@
 import React from 'react'
 
-import { connect } from 'react-redux'
-import { compose } from 'redux'
-import * as actions from '../reducers/actions'
-
 class Info extends React.Component {
   render() {
     return (
@@ -23,6 +19,14 @@ class Info extends React.Component {
             </div>
             <br />
             <div>
+              <h1> ● Update Log</h1>
+              <h2> ○ 9/3/2020 Update</h2>
+              <h3> Now you can use vote and community functions!</h3>
+              <h2> ○ 9/1/2020 Update</h2>
+              <h3> Initial upload on Google Play Store.</h3>
+            </div>
+            <br />
+            <div>
               <h1> ● Privacy</h1>
               <h2>Privacy Policy for TeamAvo</h2>
               <h3>
@@ -30,9 +34,18 @@ class Info extends React.Component {
                 can read more about how we handle the user inforamtion at{' '}
                 <a
                   href='https://teamavo.github.io/PrivacyPolicy.html'
-                  target='_top'>
+                  target='_blank'>
                   here.
                 </a>
+              </h3>
+              <h3>
+                Although we use{' '}
+                <a href='https://en.wikipedia.org/wiki/MD5' target='_blank'>
+                  MD5
+                </a>{' '}
+                encryption while passing your comment password, please do not
+                use your common pass for that. For your security, we highly
+                recommend you to use a different password.
               </h3>
             </div>
             <br />
@@ -62,7 +75,7 @@ class Info extends React.Component {
                 </ul>
               </h3>
             </div>
-            <h5>Last update at 9/1/2020</h5>
+            <h5>Last update at 9/3/2020</h5>
           </div>
         </div>
       </>
@@ -70,8 +83,4 @@ class Info extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  status: state.status,
-  mealWeek: state.mealWeek
-})
-export default compose(connect(mapStateToProps, actions))(Info)
+export default Info

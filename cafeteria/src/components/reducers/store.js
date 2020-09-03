@@ -5,8 +5,8 @@ import {
   SET_DAY_OF_MONTH,
   SET_API_CALLING_STATUS,
   GET_WEEK_MEAL,
-  SET_GOOGLE_INFO,
-  SET_VOTE_INFO,
+  SET_UPVOTE,
+  GET_GOOGLE_INFO,
   GET_VOTE_INFO,
   GET_COMMENT_DATA
 } from './types.js'
@@ -15,10 +15,11 @@ var today = new Date('2020/03/01')
 
 const initialState = {
   status: {
-    category: 2,
+    category: 0,
     date: today,
     dayOfWeek: today.getDay(),
     callingAPI: false,
+    commentUpVote: null,
     voteInfo: {
       isLoaded: false,
       info: null
@@ -29,7 +30,7 @@ const initialState = {
     }
   },
   mealWeek: {
-    isLoaded: true,
+    isLoaded: false,
     breakfast: '',
     lunch: '',
     dinner: ''
@@ -84,12 +85,20 @@ export default (state = initialState, action) => {
           callingAPI: action.payload
         }
       }
+    case SET_UPVOTE:
+      return {
+        ...state,
+        status: {
+          ...state.status,
+          commentUpVote: action.payload
+        }
+      }
     case GET_WEEK_MEAL:
       return {
         ...state,
         mealWeek: action.payload
       }
-    case SET_GOOGLE_INFO:
+    case GET_GOOGLE_INFO:
       return {
         ...state,
         googleData: action.payload
