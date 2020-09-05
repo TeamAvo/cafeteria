@@ -61,7 +61,7 @@ class Comment extends React.Component {
     return (
       <>
         <div className='textbox'>
-          <div className='subtitle'>Comment</div>
+          <div className='subtitle'>Community</div>
           {loginText}
           {this.props.gData.isAOF ? '' : googleLogin}
           <br />

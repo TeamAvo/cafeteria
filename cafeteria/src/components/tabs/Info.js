@@ -20,6 +20,8 @@ class Info extends React.Component {
             <br />
             <div>
               <h1> ● Update Log</h1>
+              <h2> ○ 9/6/2020 Update</h2>
+              <h3> Bug fixed</h3>
               <h2> ○ 9/3/2020 Update</h2>
               <h3> Now you can use vote and community functions!</h3>
               <h2> ○ 9/1/2020 Update</h2>
@@ -75,7 +77,8 @@ class Info extends React.Component {
                 </ul>
               </h3>
             </div>
-            <h5>Last update at 9/3/2020</h5>
+            <h5>Last update at 9/6/2020</h5>
+            <h5>Application Version: v1.0.5</h5>
           </div>
         </div>
       </>
