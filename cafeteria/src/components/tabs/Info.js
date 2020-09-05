@@ -43,9 +43,9 @@ class Info extends React.Component {
                 <a href='https://en.wikipedia.org/wiki/MD5' target='_blank'>
                   MD5
                 </a>{' '}
-                encryption while passing your comment password, please do not
-                use your common pass for that. For your security, we highly
-                recommend you to use a different password.
+                encryption while communicate with the server, please do not use
+                your common password. For your security, we highly recommend you
+                to use a different password for comment section.
               </h3>
             </div>
             <br />

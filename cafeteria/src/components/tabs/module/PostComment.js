@@ -64,8 +64,8 @@ class PostComment extends React.Component {
       <>
         <div className='postbox'>
           <div className='userinfo color8'>
-            {/*this.props.gData.data.profileObj.name*/ 'test name'} (
-            {/*this.props.gData.data.profileObj.email*/ 'test email'})
+            {this.props.gData.data.profileObj.name} (
+            {this.props.gData.data.profileObj.email})
           </div>
           <form className='textbox'>
             <h4>

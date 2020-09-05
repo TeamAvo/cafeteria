@@ -74,6 +74,8 @@ class Vote extends React.Component {
           It seems like you are not logged in with AOF Google account.
           <br />
           Please login with the AOF account to vote for your meal today.
+          <br />
+          test
         </h3>
       )
     }
@@ -81,10 +83,13 @@ class Vote extends React.Component {
     const googleLogin = (
       <GoogleLogin
         clientId={this.props.gData.id}
-        buttonText='Login'
+        buttonText={this.props.gData.text}
         onSuccess={this.props.getGoogleID}
         onFailure={this.props.getGoogleID}
-        cookiePolicy={'single_host_origin'}
+        cookiePolicy={this.props.gData.cookiePolicy}
+        isSignedIn={true}
+        theme='dark'
+        uxMode='redirect'
       />
     )
 
@@ -115,6 +120,7 @@ class Vote extends React.Component {
     return (
       <>
         <div className='textbox'>
+          <div className='subtitle'>Vote</div>
           <h1>How was the meal today?</h1>
           {loginText}
           {this.props.gData.isAOF ? voteBtn : googleLogin}

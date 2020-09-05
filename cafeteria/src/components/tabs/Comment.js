@@ -48,17 +48,20 @@ class Comment extends React.Component {
     const googleLogin = (
       <GoogleLogin
         clientId={this.props.gData.id}
-        buttonText='Login'
+        buttonText={this.props.gData.text}
         onSuccess={this.props.getGoogleID}
         onFailure={this.props.getGoogleID}
-        cookiePolicy={'single_host_origin'}
+        cookiePolicy={this.props.gData.cookiePolicy}
+        isSignedIn={true}
+        theme='dark'
+        uxMode='redirect'
       />
     )
 
     return (
       <>
         <div className='textbox'>
-          <h1>Comment</h1>
+          <div className='subtitle'>Comment</div>
           {loginText}
           {this.props.gData.isAOF ? '' : googleLogin}
           <br />

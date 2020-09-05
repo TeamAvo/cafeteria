@@ -11,7 +11,7 @@ import {
   GET_COMMENT_DATA
 } from './types.js'
 
-var today = new Date('2020/03/01')
+var today = new Date()
 
 const initialState = {
   status: {
@@ -38,6 +38,8 @@ const initialState = {
   googleData: {
     id:
       '340618285609-r6colaj22eh4tn822j4723t8bolhsobb.apps.googleusercontent.com',
+    text: 'Sign in with Google',
+    cookiePolicy: 'none',
     isAOF: false,
     data: null
   }
