@@ -1,4 +1,5 @@
 import React from 'react'
+import * as func from '../Functions.js'
 import VoteInfo from './module/VoteInfo.js'
 import Loading from './module/Loading.js'
 
@@ -9,40 +10,16 @@ import * as actions from '../reducers/actions'
 import { GoogleLogin, GoogleLogout } from 'react-google-login'
 import ReactStars from 'react-rating-stars-component'
 
-Date.prototype.addDays = function (days) {
-  var date = new Date(this.valueOf())
-  date.setDate(date.getDate() + days)
-  return new Date(date)
-}
-
 var rate = 2.5
-
 class Vote extends React.Component {
   sendVote(rate) {
-    var date = new Date()
-    var mealType
-    if (date.getHours() < 11) mealType = 0
-    else if (date.getHours() < 17) mealType = 1
-    else mealType = 2
-
     const data = {
-      time: date.toDateString(),
-      meal: mealType,
+      time: func.getEST(),
+      meal: func.getMealType(),
       email: this.props.gData.data.profileObj.email,
       vote: rate
     }
     return data
-  }
-
-  getMealType() {
-    var date = new Date()
-    if (date.getHours() < 11) return 'Breakfast'
-    else if (date.getHours() < 17) return 'Lunch'
-    else return 'Dinner'
-  }
-
-  ratingChanged(newRating) {
-    rate = newRating
   }
 
   render() {
@@ -56,11 +33,11 @@ class Vote extends React.Component {
       }
     } else {
       items = <Loading />
-      this.props.getVote(new Date())
+      this.props.getVote(func.getEST())
     }
 
     var loginText
-    var meal = this.getMealType()
+    var meal = func.getMealName(func.getMealType())
     if (this.props.gData.isAOF) {
       loginText = (
         <h2>
@@ -107,7 +84,9 @@ class Vote extends React.Component {
         <ReactStars
           value={2.5}
           count={5}
-          onChange={this.ratingChanged}
+          onChange={(r) => {
+            rate = r
+          }}
           size={50}
           isHalf={true}
           emptyIcon={<i className='far fa-star color1'></i>}
@@ -137,7 +116,7 @@ class Vote extends React.Component {
           <div
             className='categoryitem enable'
             onClick={() => {
-              this.props.getVote(new Date())
+              this.props.getVote(func.getEST())
             }}>
             Reload Vote
           </div>

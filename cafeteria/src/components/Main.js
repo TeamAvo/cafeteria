@@ -5,15 +5,16 @@ import Vote from './tabs/Vote.js'
 import Info from './tabs/Info.js'
 import Comment from './tabs/Comment.js'
 
+import * as func from './Functions.js'
+
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import * as actions from './reducers/actions'
-
 class Main extends React.Component {
   render() {
     const category = this.props.status.category
     if (!this.props.status.callingAPI && !this.props.mealWeek.isLoaded) {
-      this.props.getWeekMeal(this.props.status.date)
+      this.props.getWeekMeal(func.getEST())
     }
     return (
       <>
