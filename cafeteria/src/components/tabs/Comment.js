@@ -3,7 +3,7 @@ import PostComment from './module/PostComment.js'
 import CommentBox from './module/CommentBox.js'
 import Loading from './module/Loading.js'
 
-import { GoogleLogin } from 'react-google-login'
+import { GoogleLogin, GoogleLogout } from 'react-google-login'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import * as actions from '../reducers/actions'
@@ -58,12 +58,28 @@ class Comment extends React.Component {
       />
     )
 
+    const googleLogout = (
+      <GoogleLogout
+        clientId={this.props.gData.id}
+        buttonText='Logout'
+        theme='dark'
+        onLogoutSuccess={this.props.googleLogout}
+      />
+    )
+
     return (
       <>
         <div className='textbox'>
           <div className='subtitle'>Community</div>
           {loginText}
-          {this.props.gData.isAOF ? '' : googleLogin}
+          {this.props.gData.isAOF ? googleLogout : googleLogin}
+          <div
+            className='categoryitem enable'
+            onClick={() => {
+              this.props.getVote(new Date())
+            }}>
+            Reload
+          </div>
           <br />
           <div className='comment'>
             {this.props.gData.isAOF ? <PostComment /> : ''}

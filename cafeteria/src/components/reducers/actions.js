@@ -9,14 +9,15 @@ import {
   SET_UPVOTE,
   GET_GOOGLE_INFO,
   GET_VOTE_INFO,
-  GET_COMMENT_DATA
+  GET_COMMENT_DATA,
+  GOOGLE_LOGOUT
 } from './types.js'
 
 const API_URL =
   'https://cors-anywhere.herokuapp.com/https://avonoldfarms.flikisdining.com/menu/api/weeks/school/avon-old-farms/menu-type/'
 
-const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
-//const BACKEND_URL = 'http://localhost:6969/'
+//const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
+const BACKEND_URL = 'http://localhost:6969/'
 
 export const setCategory = (index) => {
   return (dispatch) => {
@@ -221,5 +222,17 @@ export const getGoogleID = (gData) => {
     } else {
       alert('Google Login Error')
     }
+  }
+}
+
+export const googleLogout = () => {
+  return (dispatch) => {
+    dispatch({
+      type: GOOGLE_LOGOUT,
+      payload: {
+        isAOF: false,
+        data: null
+      }
+    })
   }
 }

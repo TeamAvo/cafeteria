@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import * as actions from '../reducers/actions'
 
-import { GoogleLogin } from 'react-google-login'
+import { GoogleLogin, GoogleLogout } from 'react-google-login'
 import ReactStars from 'react-rating-stars-component'
 
 Date.prototype.addDays = function (days) {
@@ -93,6 +93,15 @@ class Vote extends React.Component {
       />
     )
 
+    const googleLogout = (
+      <GoogleLogout
+        clientId={this.props.gData.id}
+        buttonText='Logout'
+        theme='dark'
+        onLogoutSuccess={this.props.googleLogout}
+      />
+    )
+
     const voteBtn = (
       <>
         <ReactStars
@@ -123,8 +132,15 @@ class Vote extends React.Component {
           <div className='subtitle'>Vote</div>
           <h1>How was the meal today?</h1>
           {loginText}
-          {this.props.gData.isAOF ? voteBtn : googleLogin}
-
+          {this.props.gData.isAOF ? googleLogout : googleLogin}
+          {this.props.gData.isAOF ? voteBtn : ''}
+          <div
+            className='categoryitem enable'
+            onClick={() => {
+              this.props.getVote(new Date())
+            }}>
+            Reload Vote
+          </div>
           <h1>
             <br />
             Today's vote result 🗳️

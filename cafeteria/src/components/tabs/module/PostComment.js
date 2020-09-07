@@ -76,7 +76,7 @@ class PostComment extends React.Component {
               <input
                 type='text'
                 className='textarea menu'
-                minlength='3'
+                minLength='3'
                 maxLength='35'
                 placeholder="Today's Menu"
                 onChange={(e) => {
@@ -87,7 +87,7 @@ class PostComment extends React.Component {
             <h4>Comment:</h4>
             <textarea
               className='textarea'
-              minlength='5'
+              minLength='10'
               maxLength='500'
               placeholder='Share your thoughts with friends and give feedback to faculties!'
               onChange={(e) => {
@@ -95,17 +95,16 @@ class PostComment extends React.Component {
               }}
             />
             <h5 className='center'>
-              Minimum of 5 characters up to 500 characters allowed.
+              Minimum of 10 characters up to 500 characters allowed.
               <br />
-              Please respect others, inappropriate comments will be removed
-              without notice.
+              Please respect others, inappropriate comments can be removed.
             </h5>
             <div className='statusbox'>
               <input
                 className='pw'
                 type='password'
                 placeholder='Password'
-                minlength='3'
+                minLength='3'
                 onChange={(e) => {
                   password = e.target.value
                 }}

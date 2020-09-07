@@ -8,7 +8,8 @@ import {
   SET_UPVOTE,
   GET_GOOGLE_INFO,
   GET_VOTE_INFO,
-  GET_COMMENT_DATA
+  GET_COMMENT_DATA,
+  GOOGLE_LOGOUT
 } from './types.js'
 
 var today = new Date()
@@ -103,7 +104,11 @@ export default (state = initialState, action) => {
     case GET_GOOGLE_INFO:
       return {
         ...state,
-        googleData: action.payload
+        googleData: {
+          ...state.googleData,
+          isAOF: action.payload.isAOF,
+          data: action.payload.data
+        }
       }
     case GET_VOTE_INFO:
       return {
@@ -119,6 +124,15 @@ export default (state = initialState, action) => {
         status: {
           ...state.status,
           commentData: action.payload
+        }
+      }
+    case GOOGLE_LOGOUT:
+      return {
+        ...state,
+        googleData: {
+          ...state.googleData,
+          isAOF: action.payload.isAOF,
+          data: action.payload.data
         }
       }
     default:
