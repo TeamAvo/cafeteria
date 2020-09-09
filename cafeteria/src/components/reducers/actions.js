@@ -1,4 +1,6 @@
 import axios from 'axios'
+import moment from 'moment-timezone'
+import * as func from '../Functions.js'
 import {
   SET_CATEGORY,
   SET_DATE,
@@ -77,9 +79,8 @@ export const getWeekMeal = (newDate) => {
   return async (dispatch) => {
     console.log('Calling API...')
     setCallingStatus(true)
-    var date = new Date(newDate)
-    var d =
-      date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()
+    var date = moment(newDate)
+    var d = date.format('YYYY/MM/DD')
 
     try {
       const breakfast = await axios.get(API_URL + `breakfast/${d}`)
@@ -111,11 +112,18 @@ export const getWeekMeal = (newDate) => {
 export const getVote = (date) => {
   return async (dispatch) => {
     console.log('Get Vote Info...')
+    const d1 = moment(date).tz('America/New_York').startOf('day').format()
+    const d2 = moment(date)
+      .add(1, 'd')
+      .tz('America/New_York')
+      .endOf('day')
+      .format()
     try {
       const data = {
-        date1: new Date(date).toDateString(),
-        date2: new Date(date).addDays(1).toDateString()
+        date1: d1,
+        date2: d2
       }
+      console.log(data)
       const rsp = await axios.get(BACKEND_URL + 'vote/', { params: data })
       console.log(rsp)
       dispatch({
@@ -138,7 +146,7 @@ export const postVote = (data) => {
       console.log(data)
       const rsp = await axios.post(BACKEND_URL + 'vote/', data)
       console.log(rsp)
-      dispatch(await getVote(new Date()))
+      dispatch(await getVote(func.getEST()))
 
       alert('Your vote has been successfully submitted!')
     } catch {
@@ -158,7 +166,7 @@ export const postComment = (data) => {
       console.log(data)
       const rsp = await axios.post(BACKEND_URL + 'comment/', data)
       console.log(rsp)
-      dispatch(await getComment({ date: new Date() }))
+      dispatch(await getComment({ date: func.getEST() }))
       alert('Your comment has been successfully submitted!')
     } catch {
       alert(
@@ -175,7 +183,7 @@ export const deleteComment = (data) => {
       console.log(data)
       const rsp = await axios.post(BACKEND_URL + 'delete_comment/', data)
       console.log(rsp)
-      dispatch(await getComment({ date: new Date() }))
+      dispatch(await getComment({ date: func.getEST() }))
       alert('Your comment has been successfully removed!')
     } catch {
       alert('Incorrect password')
@@ -183,12 +191,16 @@ export const deleteComment = (data) => {
   }
 }
 
-export const getComment = (data) => {
+export const getComment = (date) => {
   return async (dispatch) => {
     console.log('Request comment data from the database...')
-    console.log(data)
+    const d = moment(date)
     try {
-      const rsp = await axios.get(BACKEND_URL + 'comment/', { params: data })
+      const data = {
+        date1: d.startOf('day'),
+        date2: d.endOf('day')
+      }
+      const rsp = await axios.get(BACKEND_URL + 'comment/', data)
       console.log(rsp)
       dispatch({
         type: GET_COMMENT_DATA,

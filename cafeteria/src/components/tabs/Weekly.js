@@ -2,6 +2,7 @@ import React from 'react'
 import Day from './module/Day.js'
 import Meal from './module/Meal.js'
 
+import moment from 'moment-timezone'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
@@ -32,7 +33,9 @@ class Weekly extends React.Component {
       <>
         <div className='datebox'>
           <DatePicker
-            selected={this.props.status.date}
+            selected={
+              new Date(moment(this.props.status.date).format('YYYY-MM-DD'))
+            }
             onChange={this.handleChange}
             customInput={<ExampleCustomInput />}
           />

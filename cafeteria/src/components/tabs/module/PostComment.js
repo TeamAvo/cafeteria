@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import * as actions from '../../reducers/actions'
+import * as func from '../../Functions.js'
 
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -13,28 +14,26 @@ var comment = null
 var md5 = require('md5')
 class PostComment extends React.Component {
   sendComment() {
-    if (menu == null || password == null || comment == null) {
+    if (
+      menu == null ||
+      password == null ||
+      comment == null ||
+      this.props.status.commentUpVote == null
+    ) {
       alert('One of the fields does not meet the requirements.')
       return null
     }
     const data = {
-      date: new Date().toDateString(),
+      date: func.getEST(),
       name: this.props.gData.data.profileObj.name,
       email: this.props.gData.data.profileObj.email,
       pw: md5(password),
-      meal_type: this.getMealType(),
+      meal: func.getMealType(),
       menu: menu,
       like: this.props.status.commentUpVote,
       comment: comment
     }
     return data
-  }
-
-  getMealType() {
-    var date = new Date()
-    if (date.getHours() < 11) return 'Breakfast'
-    else if (date.getHours() < 17) return 'Lunch'
-    else return 'Dinner'
   }
 
   render() {

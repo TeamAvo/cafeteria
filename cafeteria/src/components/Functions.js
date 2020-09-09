@@ -1,13 +1,11 @@
 import moment from 'moment-timezone'
 
 export const getEST = () => {
-  const date = moment()
-  return date.tz('America/New_York').format()
+  return moment().tz('America/New_York').format()
 }
 
 export const getMealType = () => {
-  const date = moment()
-  const hr = parseInt(date.tz('America/New_York').format('hh'))
+  const hr = parseInt(moment().tz('America/New_York').format('hh'))
   // breakfast = 0
   // lunch = 1
   // dinner = 2

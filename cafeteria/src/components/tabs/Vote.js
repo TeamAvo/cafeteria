@@ -14,10 +14,10 @@ var rate = 2.5
 class Vote extends React.Component {
   sendVote(rate) {
     const data = {
-      time: func.getEST(),
+      date: func.getEST(),
       meal: func.getMealType(),
       email: this.props.gData.data.profileObj.email,
-      vote: rate
+      rate: rate
     }
     return data
   }

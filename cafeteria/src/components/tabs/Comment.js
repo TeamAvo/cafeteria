@@ -7,6 +7,7 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import * as actions from '../reducers/actions'
+import * as func from '../Functions.js'
 
 class Comment extends React.Component {
   render() {
@@ -20,7 +21,7 @@ class Comment extends React.Component {
       }
     } else {
       items = <Loading />
-      this.props.getComment({ date: new Date() })
+      this.props.getComment(func.getEST())
     }
 
     var loginText
@@ -76,7 +77,7 @@ class Comment extends React.Component {
           <div
             className='categoryitem enable'
             onClick={() => {
-              this.props.getVote(new Date())
+              this.props.getComment(func.getEST())
             }}>
             Reload
           </div>

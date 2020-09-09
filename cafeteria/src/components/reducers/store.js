@@ -12,13 +12,16 @@ import {
   GOOGLE_LOGOUT
 } from './types.js'
 
-var today = new Date()
+import moment from 'moment-timezone'
+
+const today = moment()
+const EST = today.tz('America/New_York')
 
 const initialState = {
   status: {
     category: 0,
-    date: today,
-    dayOfWeek: today.getDay(),
+    date: EST,
+    dayOfWeek: EST.day(),
     callingAPI: false,
     commentUpVote: null,
     voteInfo: {

@@ -10,14 +10,16 @@ import {
   faTrashAlt
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Badmouse from 'bad-words'
 
 var password
 var md5 = require('md5')
+var filter = new Badmouse()
 class CommentBox extends React.Component {
   deleteComment() {
     var pw = md5(password)
     const data = {
-      _id: this.props.data._id,
+      id: this.props.data._id,
       pw: pw
     }
     return data
@@ -34,7 +36,7 @@ class CommentBox extends React.Component {
             {this.props.data.name} ({this.props.data.email})
           </div>
           <div className='textbox'>
-            <h4>{this.props.data.comment}</h4>
+            <h4>{filter.clean(this.props.data.comment)}</h4>
           </div>
           <div className='statusbox'>
             <div className='timebox color5'>
