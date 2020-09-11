@@ -1,32 +1,20 @@
 import React from 'react'
 import ReactStars from 'react-rating-stars-component'
+import * as func from '../../Functions.js'
 
 class VoteInfo extends React.Component {
   render() {
     const data = this.props.data
 
-    var mealType
-    switch (data.time.meal) {
-      case 0:
-        mealType = 'Breakfast'
-        break
-      case 1:
-        mealType = 'Lunch'
-        break
-      case 2:
-        mealType = 'Dinner'
-        break
-      default:
-        mealType = data.time.meal
-    }
+    var mealType = func.getMealName(data.meal)
 
     return (
       <>
         <div className='voteinfo color5'>
           <h3>
-            {new Date(data.time.date).toDateString()}, {mealType}
+            {new Date(data.date).toDateString()}, {mealType}
             <ReactStars
-              value={data.vote / data.total}
+              value={data.rate / data.total}
               count={5}
               size={50}
               isHalf={true}
@@ -38,7 +26,7 @@ class VoteInfo extends React.Component {
               classNames='no-click'
             />
             <h4>
-              Rate: {(data.vote / data.total).toFixed(2)} (Total: {data.total})
+              Rate: {(data.rate / data.total).toFixed(2)} (Total: {data.total})
             </h4>
           </h3>
         </div>

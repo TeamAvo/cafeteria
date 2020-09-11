@@ -12,7 +12,7 @@ import ReactStars from 'react-rating-stars-component'
 
 var rate = 2.5
 class Vote extends React.Component {
-  sendVote(rate) {
+  sendVote() {
     const data = {
       date: func.getEST(),
       meal: func.getMealType(),
@@ -98,7 +98,7 @@ class Vote extends React.Component {
         <div
           className='categoryitem enable'
           onClick={() => {
-            this.props.postVote(this.sendVote(rate))
+            this.props.postVote(this.sendVote())
           }}>
           Submit
         </div>

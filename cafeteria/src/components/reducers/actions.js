@@ -18,8 +18,8 @@ import {
 const API_URL =
   'https://cors-anywhere.herokuapp.com/https://avonoldfarms.flikisdining.com/menu/api/weeks/school/avon-old-farms/menu-type/'
 
-//const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
-const BACKEND_URL = 'http://localhost:6969/'
+const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
+//const BACKEND_URL = 'http://localhost:6969/'
 
 export const setCategory = (index) => {
   return (dispatch) => {
@@ -159,14 +159,13 @@ export const postVote = (data) => {
 
 export const postComment = (data) => {
   return async (dispatch) => {
-    if (data == null) return
-
     try {
+      if (data == null) return
       console.log('Post Comment Data to API Server...')
       console.log(data)
       const rsp = await axios.post(BACKEND_URL + 'comment/', data)
       console.log(rsp)
-      dispatch(await getComment({ date: func.getEST() }))
+      dispatch(await getComment(func.getEST()))
       alert('Your comment has been successfully submitted!')
     } catch {
       alert(
@@ -179,11 +178,12 @@ export const postComment = (data) => {
 export const deleteComment = (data) => {
   return async (dispatch) => {
     try {
+      if (data == null) return
       console.log('Request delete comment from the database...')
       console.log(data)
       const rsp = await axios.post(BACKEND_URL + 'delete_comment/', data)
       console.log(rsp)
-      dispatch(await getComment({ date: func.getEST() }))
+      dispatch(await getComment(func.getEST()))
       alert('Your comment has been successfully removed!')
     } catch {
       alert('Incorrect password')
@@ -194,13 +194,18 @@ export const deleteComment = (data) => {
 export const getComment = (date) => {
   return async (dispatch) => {
     console.log('Request comment data from the database...')
-    const d = moment(date)
+    const d1 = moment(date).tz('America/New_York').startOf('day').format()
+    const d2 = moment(date)
+      .add(1, 'd')
+      .tz('America/New_York')
+      .endOf('day')
+      .format()
     try {
       const data = {
-        date1: d.startOf('day'),
-        date2: d.endOf('day')
+        date1: d1,
+        date2: d2
       }
-      const rsp = await axios.get(BACKEND_URL + 'comment/', data)
+      const rsp = await axios.get(BACKEND_URL + 'comment/', { params: data })
       console.log(rsp)
       dispatch({
         type: GET_COMMENT_DATA,
