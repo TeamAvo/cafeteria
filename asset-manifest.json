@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Cafeteria/static/css/main.1a01e90c.chunk.css",
-    "main.js": "/Cafeteria/static/js/main.f36845fb.chunk.js",
-    "main.js.map": "/Cafeteria/static/js/main.f36845fb.chunk.js.map",
+    "main.js": "/Cafeteria/static/js/main.8dcacc82.chunk.js",
+    "main.js.map": "/Cafeteria/static/js/main.8dcacc82.chunk.js.map",
     "runtime-main.js": "/Cafeteria/static/js/runtime-main.ac6ce7fd.js",
     "runtime-main.js.map": "/Cafeteria/static/js/runtime-main.ac6ce7fd.js.map",
     "static/css/2.25ff2e5b.chunk.css": "/Cafeteria/static/css/2.25ff2e5b.chunk.css",
     "static/js/2.9d6ec5bc.chunk.js": "/Cafeteria/static/js/2.9d6ec5bc.chunk.js",
     "static/js/2.9d6ec5bc.chunk.js.map": "/Cafeteria/static/js/2.9d6ec5bc.chunk.js.map",
     "index.html": "/Cafeteria/index.html",
-    "precache-manifest.2f51bb86bbf2f4a58b83f6f9e4ca838e.js": "/Cafeteria/precache-manifest.2f51bb86bbf2f4a58b83f6f9e4ca838e.js",
+    "precache-manifest.3e1f36fe907c6f91566bf0eb5d0259dc.js": "/Cafeteria/precache-manifest.3e1f36fe907c6f91566bf0eb5d0259dc.js",
     "service-worker.js": "/Cafeteria/service-worker.js",
     "static/css/2.25ff2e5b.chunk.css.map": "/Cafeteria/static/css/2.25ff2e5b.chunk.css.map",
     "static/css/main.1a01e90c.chunk.css.map": "/Cafeteria/static/css/main.1a01e90c.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.25ff2e5b.chunk.css",
     "static/js/2.9d6ec5bc.chunk.js",
     "static/css/main.1a01e90c.chunk.css",
-    "static/js/main.f36845fb.chunk.js"
+    "static/js/main.8dcacc82.chunk.js"
   ]
 }
