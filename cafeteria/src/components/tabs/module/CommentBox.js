@@ -51,8 +51,7 @@ class CommentBox extends React.Component {
           </div>
           <div className='statusbox'>
             <div className='timebox color5'>
-              {`${this.props.data.date.split('T')[0]}, ${
-                func.getMealName(this.props.data.meal)
+              {`${this.props.data.date.split('T')[0]}, ${func.getMealName(this.props.data.meal)
                 }, ${this.props.data.menu} `}
               {this.props.data.like ? like : dislike}
             </div>
@@ -69,7 +68,7 @@ class CommentBox extends React.Component {
               <div
                 className='deletebtn'
                 onClick={() => {
-                  this.props.deleteComment(this.deleteComment())
+                  /*this.props.deleteComment(this.deleteComment())*/
                 }}>
                 Delete
               </div>

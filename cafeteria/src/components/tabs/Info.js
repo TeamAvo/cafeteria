@@ -16,16 +16,26 @@ class Info extends React.Component {
                 the quality of the meals, you can share your thoughts with other
                 students, and you can give feedback to school faculties.
               </h3>
+              <h3>
+                Join {' '}
+                <a href='https://discord.gg/t2hjWXg' target='_top'>
+                  Team Avo Community Server (Discord)
+                </a>
+              </h3>
             </div>
             <br />
             <div>
               <h1> ● Update Log</h1>
-              <h2> ○ 9/6/2020 Update</h2>
-              <h3> Bug fixed</h3>
-              <h2> ○ 9/3/2020 Update</h2>
-              <h3> Now you can use vote and community functions!</h3>
-              <h2> ○ 9/1/2020 Update</h2>
-              <h3> Initial upload on Google Play Store.</h3>
+              <h3> ○ 9/14/2020 Update</h3>
+              <h4> Disable community section.</h4>
+              <h3> ○ 9/9/2020 Update</h3>
+              <h4> Security update.</h4>
+              <h3> ○ 9/6/2020 Update</h3>
+              <h4> Bug fixed.</h4>
+              <h3> ○ 9/3/2020 Update</h3>
+              <h4> Now you can use vote and community functions!</h4>
+              <h3> ○ 9/1/2020 Update</h3>
+              <h4> Initial upload on Google Play Store.</h4>
             </div>
             <br />
             <div>
@@ -42,7 +52,7 @@ class Info extends React.Component {
               </h3>
               <h3>
                 Although we use{' '}
-                <a href='https://en.wikipedia.org/wiki/MD5' target='_blank'>
+                <a href='https://en.wikipedia.org/wiki/MD5' target='_top'>
                   MD5
                 </a>{' '}
                 encryption while communicate with the server, please do not use
@@ -72,12 +82,12 @@ class Info extends React.Component {
                     </a>
                   </li>
                   <li>
-                    <a href='https://discord.gg/RkdFjM'>Discord</a>
+                    <a href='https://discord.gg/vdpQ2ar'>Team Avo Support Server (Discord)</a>
                   </li>
                 </ul>
               </h3>
             </div>
-            <h5>Last update at 9/6/2020</h5>
+            <h5>Last update at 9/14/2020</h5>
             <h5>Application Version: v1.0.5</h5>
           </div>
         </div>

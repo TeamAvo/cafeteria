@@ -112,7 +112,7 @@ class PostComment extends React.Component {
                 type='button'
                 className='submit color6'
                 onClick={() => {
-                  this.props.postComment(this.sendComment())
+                  /*this.props.postComment(this.sendComment())*/
                 }}>
                 Submit
               </button>

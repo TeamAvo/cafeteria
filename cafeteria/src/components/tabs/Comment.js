@@ -7,7 +7,6 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 import * as actions from '../reducers/actions'
-import * as func from '../Functions.js'
 
 class Comment extends React.Component {
   render() {
@@ -21,7 +20,7 @@ class Comment extends React.Component {
       }
     } else {
       items = <Loading />
-      this.props.getComment(func.getEST())
+      this.props.getComment('2020-09-13T00:00:00-04:00' /*func.getEST()*/)
     }
 
     var loginText
@@ -71,13 +70,14 @@ class Comment extends React.Component {
     return (
       <>
         <div className='textbox'>
-          <div className='subtitle'>Community</div>
+          <div className='subtitle'>Community (Preview) </div>
+          <h3>The community section is currently disabled, and this is a preview page.</h3>
           {loginText}
           {this.props.gData.isAOF ? googleLogout : googleLogin}
           <div
             className='categoryitem enable'
             onClick={() => {
-              this.props.getComment(func.getEST())
+              /*this.props.getComment(func.getEST())*/
             }}>
             Reload
           </div>

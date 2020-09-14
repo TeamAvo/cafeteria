@@ -18,8 +18,8 @@ import {
 const API_URL =
   'https://cors-anywhere.herokuapp.com/https://avonoldfarms.flikisdining.com/menu/api/weeks/school/avon-old-farms/menu-type/'
 
-const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
-//const BACKEND_URL = 'http://localhost:6969/'
+//const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
+const BACKEND_URL = 'http://localhost:6969/'
 
 export const setCategory = (index) => {
   return (dispatch) => {
@@ -116,7 +116,7 @@ export const getVote = (date) => {
     const d2 = moment(date)
       .add(1, 'd')
       .tz('America/New_York')
-      .endOf('day')
+      .startOf('day')
       .format()
     try {
       const data = {
