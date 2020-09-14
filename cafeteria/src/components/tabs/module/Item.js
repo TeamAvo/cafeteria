@@ -1,4 +1,5 @@
 import React from 'react'
+import Logo from '../../../assets/img/LOGO.png'
 
 class Item extends React.Component {
   render() {
@@ -9,13 +10,13 @@ class Item extends React.Component {
         if (data[i].food != null) {
           var imgURL
           if (data[i].food.image_url == null) {
-            imgURL = `https://source.unsplash.com/300x300/?${data[i].food.name}`
+            imgURL = Logo /*`https://source.unsplash.com/300x300/?${data[i].food.name}`*/
           } else {
             imgURL = data[i].food.image_url
           }
           items.push(
             <div key={i} className='item'>
-              <img src={imgURL} alt={data[i].food.name} className='img' />
+              {/*<img src={imgURL} alt={data[i].food.name} className='img' />*/}
               {/*<a target='_blank' href={imgURL}></a>*/}
               <p className='name'>{data[i].food.name}</p>
               <p className='description'>{data[i].food.description}</p>

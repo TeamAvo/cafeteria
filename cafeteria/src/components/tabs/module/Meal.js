@@ -25,10 +25,6 @@ class Meal extends React.Component {
             <Item data={lunch.menu_items} title='Lunch' color='color2' />
             <Item data={dinner.menu_items} title='Dinner' color='color3' />
           </div>
-          <h4 className='center'>
-            *Since we are using a random keyword image search API, some of the
-            images might not display properly.
-          </h4>
         </div>
       )
     } else {
@@ -43,3 +39,10 @@ const mapStateToProps = (state) => ({
   mealWeek: state.mealWeek
 })
 export default compose(connect(mapStateToProps, actions))(Meal)
+
+/*
+<h4 className='center'>
+  *Since we are using a random keyword image search API, some of the
+  images might not display properly.
+</h4>
+*/

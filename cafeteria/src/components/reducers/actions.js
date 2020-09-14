@@ -18,8 +18,8 @@ import {
 const API_URL =
   'https://cors-anywhere.herokuapp.com/https://avonoldfarms.flikisdining.com/menu/api/weeks/school/avon-old-farms/menu-type/'
 
-//const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
-const BACKEND_URL = 'http://localhost:6969/'
+const BACKEND_URL = 'https://cryptic-reaches-78660.herokuapp.com/'
+//const BACKEND_URL = 'http://localhost:6969/'
 
 export const setCategory = (index) => {
   return (dispatch) => {
