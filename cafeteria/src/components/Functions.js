@@ -1,4 +1,5 @@
 import moment from 'moment-timezone'
+import GoogleImage from './tabs/module/GoogleImage'
 
 export const getEST = () => {
   return moment().tz('America/New_York').format()
@@ -24,4 +25,11 @@ export const getMealName = (mt) => {
     case 2:
       return 'Dinner'
   }
+}
+
+export const test = () => {
+  GoogleImage.searchImage("cat")
+    .then((res) => {
+      console.log(res);
+    })
 }

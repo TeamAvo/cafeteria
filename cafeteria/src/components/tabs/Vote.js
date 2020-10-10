@@ -23,6 +23,7 @@ class Vote extends React.Component {
   }
 
   render() {
+    func.test();
     var items
     if (this.props.status.voteInfo.isLoaded) {
       items = []
