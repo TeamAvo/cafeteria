@@ -70,15 +70,15 @@ class Info extends React.Component {
               <h3>
                 <ul>
                   <li>
-                    HyunJun Park:
+                    HyunJun Park: 
                     <a href='mailto:parkh@avonoldfarms.com' target='_top'>
                       parkh@avonoldfarms.com
                     </a>
                   </li>
                   <li>
-                    Spencer Li:
+                    Spencer Li: 
                     <a href='mailto:lis@avonoldfarms.com' target='_top'>
-                      parkh@avonoldfarms.com
+                      lis@avonoldfarms.com
                     </a>
                   </li>
                   <li>
